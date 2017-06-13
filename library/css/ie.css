@@ -1,0 +1,257 @@
+/******************************************************************
+Site Name: weblog.coletree.com
+Author:	coletree
+Stylesheet: IE Stylesheet
+
+So instead of using the respond.js file to add media query support
+to IE, we're going to use SASS to create an easily readable css file.
+Here, we import all the styles the standard stylesheet gets, only
+without the media queries. No need to worry about editing anything!
+
+******************************************************************/
+/******************************************************************
+IMPORTS & DEPENDENCIES
+Remember, all the BASE styles are called already since IE can
+read those. Below, we need to import only the stuff IE can't
+understand (what's inside the media queries). We also need to
+import the mixins file so SASS can understand the variables.
+******************************************************************/
+/******************************************************************
+Site Name: weblog.coletree.com
+Author:	coletree
+Stylesheet: Variables
+
+Here is where we declare all our variables like colors, fonts,
+base values, and defaults. We want to make sure this file ONLY
+contains variables that way our files don't get all messy.
+No one likes a mess.
+
+******************************************************************/
+/*********************
+COLORS
+Need help w/ choosing your colors? Try this site out:
+http://0to255.com/
+*********************/
+/******************************************************************
+Site Name: weblog.coletree.com
+Author:	coletree
+Stylesheet: Mixins Stylesheet
+
+This is where you can take advantage of Sass' great features: Mixins.
+I won't go in-depth on how they work exactly,
+there are a few articles below that will help do that. What I will
+tell you is that this will help speed up simple changes like
+changing a color or adding CSS3 techniques gradients.
+
+A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+remember less is more.
+
+Helpful:
+http://sachagreif.com/useful-sass-mixins/
+http://thesassway.com/intermediate/leveraging-sass-mixins-for-cleaner-code
+http://web-design-weekly.com/blog/2013/05/12/handy-sass-mixins/
+
+******************************************************************/
+/*********************
+Link Style
+*********************/
+/*********************
+Post Pic Shadow 
+*********************/
+/*********************
+TRANSITION
+*********************/
+/*
+I totally rewrote this to be cleaner and easier to use.
+You'll need to be using Sass 3.2+ for these to work.
+Thanks to @anthonyshort for the inspiration on these.
+USAGE: @include transition(all 0.2s ease-in-out);
+*/
+/*********************
+CSS3 GRADIENTS
+Be careful with these since they can
+really slow down your CSS. Don't overdo it.
+*********************/
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+/*********************
+BOX SIZING
+*********************/
+/* @include box-sizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So
+probably best not to use it. I mean, were you going to anyway? */
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: IE Grid Styles
+
+Since the example grid is based on media queries, so rather than
+setup some js library that would make IE8 and below understand
+media queries, let's just add some styles that serves a fixed grid.
+
+Again, if you want to roll your own, just remove this junk and put
+whatever you use in here.
+
+******************************************************************/
+/******************************************************************
+Site Name: weblog.coletree.com
+Author:	coletree
+
+Stylesheet: Desktop Stylsheet
+
+This is the desktop size. It's larger than an iPad so it will only
+be seen on the Desktop.
+
+******************************************************************/
+#inner-header {
+  width: 100%; }
+
+.footer #inner-footer {
+  width: 100%;
+  padding: 0 0; }
+
+.footer-last-widget {
+  float: left; }
+
+/******************************************************************
+Site Name: weblog.coletree.com
+Author:	coletree
+
+Stylesheet: Tablet & Small Desktop Stylesheet
+
+Here's where you can start getting into the good stuff.
+This size will work on iPads, other tablets, and desktops.
+So you can start working with more styles, background images,
+and other resources. You'll also notice the grid starts to
+come into play. Have fun!
+
+******************************************************************/
+.header {
+  height: 60px; }
+
+#inner-header {
+  width: 100%; }
+
+.site-branding {
+  left: 10px;
+  top: -4px; }
+
+#menuSwitchWrap {
+  display: inline-block; }
+
+#navMenuWrap {
+  float: none;
+  margin-top: 80px;
+  padding: 0 20px;
+  display: none;
+  background: #fff; }
+
+#inner-header nav .nav {
+  float: none;
+  display: block;
+  text-align: center;
+  padding: 0 0 0 0; }
+  #inner-header nav .nav li {
+    display: block;
+    float: none;
+    border-top: dotted 1px #c8c2b9; }
+    #inner-header nav .nav li a {
+      border-right: 0 none;
+      display: block;
+      font-size: 16px;
+      overflow: hidden;
+      padding: 16px 20px; }
+
+.postListItem .featurePic {
+  float: none;
+  margin: 0 auto 20px;
+  width: 100%; }
+  .postListItem .featurePic img {
+    width: auto;
+    max-width: 100%;
+    height: auto; }
+
+.entry-content {
+  padding: 0 30px; }
+
+.homeNav {
+  font-size: 12px; }
+
+.homeNav a {
+  font-size: 15px;
+  padding: 0 10px; }
+
+/*post-formate--------------------------------------*/
+.post_thoughs_format .entry-content {
+  line-height: 1.6em; }
+  .post_thoughs_format .entry-content p {
+    font-size: 16px;
+    padding: 0 30px; }
+
+.post_journal_format .article-header {
+  padding: 0; }
+.post_journal_format .entry-content p {
+  font-size: 16px;
+  line-height: 1.6em; }
+.post_journal_format .entry-content > img {
+  max-width: 100%; }
+
+/*recommend post format*/
+.post_recommend_format .entry-content {
+  font-size: 16px;
+  line-height: 1.6em; }
+
+/*page--------------------------------------*/
+/*footer--------------------------------------*/
+#footerWidget {
+  padding: 0 40px; }
+  #footerWidget .widgetTitle {
+    font-size: 16px;
+    font-weight: normal;
+    padding-bottom: 16px;
+    margin-bottom: 0; }
+  #footerWidget .footer-widget {
+    float: none;
+    display: block;
+    width: 100%;
+    margin-right: 0; }
+    #footerWidget .footer-widget li {
+      padding: 12px 0 12px 2px;
+      border-bottom: dotted 1px #EEE; }
+      #footerWidget .footer-widget li a {
+        font-size: 16px;
+        display: block; }
+  #footerWidget .footer-last-widget {
+    display: none; }
+
+.footer-bottom .other-links {
+  display: none; }
+.footer-bottom .copyright {
+  float: none;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px 0; }
+
+/*
+you can call the larger styles if you want, but there's really no need
+*/
+/******************************************************************
+ADDITIONAL IE FIXES
+These fixes are now ONLY seen by IE, so you don't have to worry
+about using prefixes, although it's best practice. For more info
+on using Modernizr classes, check out this link:
+http://www.modernizr.com/docs/
+******************************************************************/
+/*
+For example, you can use something like:
+
+.no-textshadow .class { ... }
+
+You can also target specific versions by using the classes applied to
+the html element. These can sometimes change, so take a look inside the
+header.php file to see what they are:
+
+
+.lt-ie8 .class { ... }
+
+*/
