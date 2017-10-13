@@ -1,219 +1,431 @@
 /******************************************************************
 Site Name: weblog.coletree.com
 Author:	coletree
-
 Stylesheet: Tablet & Small Desktop Stylesheet
-
-Here's where you can start getting into the good stuff.
-This size will work on iPads, other tablets, and desktops.
-So you can start working with more styles, background images,
-and other resources. You'll also notice the grid starts to
-come into play. Have fun!
-
 ******************************************************************/
-.header {
-    height: 60px;
-}
 
-#inner-header {
-    width: 100%;
-}
 
-.site-branding{
-	left: 10px;
-	top: -4px;
-}
 
-#menuSwitchWrap{
-	display: inline-block;
-}
+/*********************
+HEADER 模块
+*********************/
+.header{
+	height: 40px;
 
-#navMenuWrap{
-	float: none;
-	margin-top: 80px;
-	padding: 0 20px;
-	display: none;
-	background: #fff;
-}
+	#inner-header{
+		height: 40px;
+		width: 100%;
 
-#inner-header nav{
+		.site-branding{
+			padding-left: 0;
+			text-align: center;
+			position: relative;
+			
+			.site-title{
+				a{
+					display: inline-block;
+					width: 120px; 
+					height: 40px; 
+					background:url(../images/logo.png) no-repeat 0 -7px;
+					background-size:120px 40px;
+					text-decoration: none; 
+					line-height: 99em;
+					vertical-align: top;
+					overflow: hidden;
+				}
+			}	
+		}
 
-	.nav{
-		float: none;
-		display: block;
-		text-align: center;
-		padding: 0 0 0 0;
+		// #menuSwitchWrap{
+		// 	display: inline-block;
 
-		li{
-			display: block;
+		// 	#menuSwitch,
+		// 	#menuSwitch:hover,
+		// 	#menuSwitch:active,
+		// 	#menuSwitch:link,
+		// 	#menuSwitch:visited,
+		// 	#menuSwitch:focus{
+		// 		width: 40px;
+		// 		height: 40px;
+		// 		line-height: 40px;
+		// 		font-size: 24px;
+		// 		cursor: pointer;
+		// 		opacity: 0.6;
+		// 		outline: none;
+		// 	}
+		// }
+
+		#navMenuWrap{
 			float: none;
-			border-top: dotted 1px #c8c2b9;
+			margin-top: 80px;
+			padding: 0 20px;
+			display: none;
+			background: #fff;
 
-			a {
-			border-right: 0 none;
-			display:block;
-			font-size: 16px;
-			overflow: hidden;
-			padding: 16px 20px;
+			.nav{
+				float: none;
+				display: block;
+				text-align: center;
+				padding: 0 0 0 0;
+		
+				li{
+					display: block;
+					float: none;
+					border-top: dotted 1px #c8c2b9;
+		
+					a {
+						border-right: 0 none;
+						display:block;
+						font-size: 16px;
+						overflow: hidden;
+						padding: 16px 20px;
+					}
+		
+				}
+		
 			}
 
 		}
-
-	}
-
-}
-
-
-.postListItem{
-
-	.featurePic{
-		float: none;
-		margin:0 auto 20px;
-		width: 100%;
-
-		img{
-			width: auto;
-			max-width: 100%;
-			height: auto;
-		}
-	}
-
-}
-
-
-.entry-content {
-    padding: 0 30px;
-}
-
-
-.homeNav{
-    font-size: 12px;
-}
-
-.homeNav a {
-    font-size: 15px;
-    padding: 0 10px;
-}
-
-
-
-
-
-
-/*post-formate--------------------------------------*/
-
-
-.post_thoughs_format{
-
-	.entry-content{
-		line-height: 1.6em;
-
-		p{
-			font-size: 16px;
-			padding: 0 30px;
-		}
-	}
-
-}
-
-
-
-.post_journal_format{
-
-	.article-header{
-    	padding: 0;
-	}
-
-	.entry-content{
-
-		p{
-			font-size: 16px;
-			line-height: 1.6em;
-		}
-
-		> img{
-			max-width: 100%;
-		}
-
+		
 	}
 	
 }
 
 
 
-/*recommend post format*/
-.post_recommend_format{
 
-	.entry-content{
-		font-size: 16px;
-		line-height: 1.6em;
-	}
+/*********************
+页脚样式
+*********************/
+.footer {
+	padding: 20px 0;
+	background: $bgcolor;
 
-}
-
-
-
-
-
-/*page--------------------------------------*/
-
-
-
-
-
-/*footer--------------------------------------*/
-#footerWidget {
-    padding: 0 40px;
-
-    .widgetTitle {
-		font-size: 16px;
-		font-weight: normal;
-		padding-bottom: 16px;
-		margin-bottom: 0;
-	}
-
-	.footer-widget {
-		float: none;
-		display: block;
+	#inner-footer{
 		width: 100%;
-		margin-right: 0;
+		margin: 0 auto;
+		box-sizing: border-box;
 
-		li{
-		    padding: 12px 0 12px 2px;
-		    border-bottom: dotted 1px #EEE;
-
-		    a{
-		    	font-size: 16px;
-		    	display: block;
-		    }
+		#footerWidget{
+			.other-links{
+				li{
+					a{
+						color: #aaa;
+						font-size: 14px;
+					}
+				}
+			}
+		}
+		
+		.footer-bottom{
+			color: #aaa;
+			font-size: 14px;
+			text-align: center;
+			margin-top: 8px;
 		}
 
 	}
 
-	.footer-last-widget{
-	    display: none;
-	}
-}
-
-
-
-.footer-bottom{
-    
-    .other-links{
-    	display: none;
-    }
-
-    .copyright {
-    	float: none;
-    	font-size: 14px;
-    	text-align: center;
-    	padding: 10px 0;
-	}
 }
 
 
 
 
+/*********************
+首页模块
+*********************/
+#content{
+	padding-top: 100px;
+}
+
+
+#inner-content{
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 20px;
+	box-sizing: border-box;
+	
+	#leftContent{
+		font-size: 18px;
+		float: none;
+		width: 100%;
+		margin: 0 auto;
+		box-sizing: border-box;
+	}
+
+	.sidebar{
+		width: 100%;
+		float: none;
+		margin: 0 auto;
+		padding: 0 40px;
+		box-sizing: border-box;
+
+		.widget{
+
+			img{
+				width: 100%;
+				height: auto;
+				vertical-align: top;
+			}
+
+		}
+		
+	}
+
+}
+
+
+.postListItem{
+	width: 100%;
+	margin-bottom: 20px;
+	box-sizing: border-box;
+
+	.featurePic{
+		height:220px;
+	}
+
+	.listItemContent{
+		padding: 24px 20px 10px;
+
+		h3{
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 16px;
+		}
+
+		.listItemSummary{
+			font-size: 16px;
+			line-height: 1.6em;
+			margin-bottom: 10px;
+			text-align: justify;
+		}
+
+	}
+
+	footer{
+		margin: 0 20px;
+		padding: 20px 0;
+		.listItemMeta{
+			font-size: 12px;
+			a{
+				color: #aaa;
+			}
+		}
+		
+	}
+
+}
 
 
 
+/*post-format自定义------------------------------*/
+
+// 单图
+.postListItem.post_format-post-format-image{
+	.listItemContent{
+		padding: 0 0 20px;
+		.listItemSummary{
+			margin-bottom: 0;
+			p{
+				padding: 0 20px;
+			}
+			.listItemMeta {
+				font-size: 12px;
+				padding: 0 20px;
+			}
+		}
+	}
+}
+
+
+// 视频
+.postListItem.post_format-post-format-video{
+	.listItemContent{
+		padding: 0 0 20px;
+		.listItemSummary{
+			margin-bottom: 0;
+			p{
+				padding: 0 20px;
+			}
+			.listItemMeta {
+				font-size: 12px;
+				padding: 0 20px;
+			}
+		}
+	}
+}
+
+
+// 状态
+.postListItem.post_format-post-format-status{
+	.listItemContent{
+		padding: 20px 0;
+		.listItemSummary{
+			margin-bottom: 0;
+			p{
+				padding: 0 20px;
+			}
+			.listItemMeta {
+				font-size: 12px;
+				padding: 0 20px;
+			}
+		}
+	}
+}
+
+
+
+
+/*文章存档页-----*/
+.archive-title{
+	padding: 0 0 40px;
+}
+
+
+
+/*单篇文章样式--------------------------------------*/
+#single-content{
+	padding: 100px 0 0;
+
+	#single-content-wrap{
+		width: 100%;
+		margin: 0 auto;
+		padding: 0 25px;
+		box-sizing: border-box;
+
+		.hentry{
+
+			.article-header{
+				text-align: left;
+				padding: 0 0 20px;
+
+				.entry-title{
+					font-size: 24px;
+					font-weight: bold;
+					text-align: left;
+					margin-bottom: 10px;
+				}
+
+				.entry-meta-wrap{
+					color:#aaa;
+					font-size:16px;
+					text-align: left;
+					margin-bottom: 10px;
+					width: 100%;
+					box-sizing: border-box;
+	
+					span{
+						margin-right: 8px;
+					}
+				}
+			}
+			
+			.entry-content{
+				padding: 0 0;
+				
+				p {
+					font-size: 16px;
+					line-height: 28px;
+					margin: 0 0 30px;
+					text-align: justify;
+					word-spacing: -1px;
+				}
+			
+				.wp-caption{
+					p{
+						font-size: 14px;
+						text-align: center;
+					}
+				}
+			}
+
+			footer {
+				padding: 20px 0;
+				background:url(../images/dashline.png) #fff no-repeat center top;
+			}
+
+		}
+
+		.video-js{
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+
+
+
+.entry-meta-wrap-bottom{
+	padding: 0;
+
+	a{
+		color: #aaa;
+		&:hover{
+			color:#F6512C;
+		}
+	}
+
+}
+
+
+.post_view_count{
+	padding: 10px 0;
+}
+
+
+#single-article-footer{
+	margin: 30px 0;
+
+	table{
+		p{
+			padding: 10px;
+		}
+	}
+}
+
+
+
+
+/******************************************************************
+COMMENT STYLES
+******************************************************************/
+.single-volume-comment{
+	margin: 0 auto;
+	width: 100%;
+	padding: 0 0;
+}
+
+#comments-title {
+	padding: 10px 20px;
+}
+
+.pingback,
+.comment {
+	padding: 20px 20px;
+}
+
+
+
+
+/*不同类型单篇文章样式--------------------------------------*/
+#single-content{
+	#single-content-wrap{
+		.post_format-post-format-status{
+			.entry-content{
+				padding:30px 30px 20px;
+				margin:0 0 20px;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+/*Full Width Page-------------------------------------------------------*/
+#fullWidthPage-content {
+	padding: 0 20px;
+}

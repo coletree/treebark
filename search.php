@@ -4,41 +4,45 @@
 
 				<div id="inner-content" class="wrap cf">
 
-					<div id="main" class="m-all t-2of3 d-5of7 cf" role="main">
-						<h1 class="archive-title"><span><?php _e( 'Search Results for:', 'bonestheme' ); ?></span> <?php echo esc_attr(get_search_query()); ?></h1>
+					<h1 class="archive-title">
+						<span><?php _e( 'Search Results for:', 'bonestheme' ); ?></span> <?php echo esc_attr(get_search_query()); ?>
+					</h1>
+
+					<div id="leftContent" class="" role="">
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
+						<article class="postListItem cf">
 
-								<header class="article-header">
+							<?php if ( has_post_thumbnail()) : ?>
+							<header class="featurePic">
+								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+									<?php the_post_thumbnail('large'); ?>
+								</a>
+							</header>
+							<?php else : ?>
+							<?php endif; ?>
+							
+							<a class="listItemContent" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+								<h3><?php the_title(); ?></h3>
+								<p class="listItemSummary">
+									<?php echo mb_strimwidth(strip_tags(apply_filters('the_excerpt', $post->post_content)), 0, 240,"...");?>
+								</p>
+							</a>
 
-									<h3 class="search-title"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-
-                  <p class="byline vcard">
-                    <?php printf( __( 'Posted <time class="updated" datetime="%1$s" pubdate>%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
-                  </p>
-
-								</header>
-
-								<section class="entry-content">
-										<?php the_excerpt( '<span class="read-more">' . __( 'Read more &raquo;', 'bonestheme' ) . '</span>' ); ?>
-
-								</section>
-
-								<footer class="article-footer">
-
-                  <?php printf( __( 'Filed under: %1$s', 'bonestheme' ), get_the_category_list(', ') ); ?>
-
-                  <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
-
-								</footer> <!-- end article footer -->
-
-							</article>
+							<footer>
+								<div class="listItemMeta">
+									<?php the_time('Y-m-d', '<span>', '</span>'); ?>&nbsp;-&nbsp;发布于“<?php the_category(', '); ?>”
+								</div>
+							</footer>
+							
+						</article>
 
 						<?php endwhile; ?>
 
-								<?php bones_page_navi(); ?>
+						
+						<?php bones_page_navi(); ?>
+
 
 							<?php else : ?>
 
@@ -58,7 +62,9 @@
 
 						</div>
 
-							<?php get_sidebar(); ?>
+
+						<?php get_sidebar(); ?>
+
 
 					</div>
 

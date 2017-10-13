@@ -46,7 +46,6 @@ https://github.com/devinhunt/typebase.css
 I've edited it a bit, but it's a nice starting point.
 */
 
-
 // font stacks
 $sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
 $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
@@ -57,10 +56,12 @@ $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 */
 $lato:              'Lato', $sans-serif;
 
-/*
-some nice typographical defaults
-more here: http://www.newnet-soft.com/blog/csstypography
-*/
+
+
+
+
+
+/*段落文本---------------------------------------------------------------------------*/
 p {
   -ms-word-break: break-all;
   -ms-word-wrap: break-all;
@@ -82,3 +83,29 @@ p {
           font-feature-settings: "liga", "dlig";
 }
 
+
+
+/*超链接文本---------------------------------------------------------------------------*/
+a, a:visited {
+	color: $link-color;
+    text-decoration: none;
+
+	/* on hover */
+	&:hover, &:focus {
+		color: $link-hover;
+	}
+
+	/* on click */
+	&:active {
+	}
+
+	/* mobile tap color */
+	&:link {
+		/*
+		this highlights links on iPhones/iPads.
+		so it basically works like the :hover selector
+		for mobile devices.
+		*/
+		-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+	}
+}

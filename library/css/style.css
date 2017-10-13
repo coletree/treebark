@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /******************************************************************
 Site Name: weblog.coletree.com
 Author:	coletree
@@ -10,7 +11,6 @@ of the styles inside media queries.
 
 Helpful articles on Sass file organization:
 http://thesassway.com/advanced/modular-css-naming-conventions
-
 ******************************************************************/
 /*********************
 IMPORTING PARTIALS
@@ -248,7 +248,7 @@ body {
    Links
    ========================================================================== */
 /**
- * Remove the gray background color from active links in IE 10.
+ * Remove the grey background color from active links in IE 10.
  */
 a {
   background: transparent; }
@@ -580,13 +580,19 @@ Here is where we declare all our variables like colors, fonts,
 base values, and defaults. We want to make sure this file ONLY
 contains variables that way our files don't get all messy.
 No one likes a mess.
-
 ******************************************************************/
 /*********************
-COLORS
-Need help w/ choosing your colors? Try this site out:
-http://0to255.com/
+Global Color
 *********************/
+/*********************
+Global animate
+*********************/
+* {
+  -moz-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in; }
+
 /******************************************************************
 Site Name: weblog.coletree.com
 Author: coletree
@@ -632,10 +638,7 @@ I've edited it a bit, but it's a nice starting point.
  i imported this one in the functions file so bones would look sweet.
  don't forget to remove it for your site.
 */
-/*
-some nice typographical defaults
-more here: http://www.newnet-soft.com/blog/csstypography
-*/
+/*段落文本---------------------------------------------------------------------------*/
 p {
   -ms-word-break: break-all;
   -ms-word-wrap: break-all;
@@ -652,6 +655,23 @@ p {
   -ms-font-feature-settings: "liga", "dlig";
   -o-font-feature-settings: "liga", "dlig";
   font-feature-settings: "liga", "dlig"; }
+
+/*超链接文本---------------------------------------------------------------------------*/
+a, a:visited {
+  color: #453D31;
+  text-decoration: none;
+  /* on hover */
+  /* on click */
+  /* mobile tap color */ }
+  a:hover, a:focus, a:visited:hover, a:visited:focus {
+    color: #635746; }
+  a:link, a:visited:link {
+    /*
+    this highlights links on iPhones/iPads.
+    so it basically works like the :hover selector
+    for mobile devices.
+    */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); }
 
 /******************************************************************
 Site Name:
@@ -788,64 +808,6 @@ you can just remove this stylesheet.
 Site Name:
 Author:
 
-Stylesheet: Button Styles
-
-Buttons are a pretty important part of your site's style, so it's
-important to have a consistent baseline for them. Use this stylesheet
-to create all kinds of buttons.
-
-Helpful Links:
-http://galp.in/blog/2011/08/02/the-ui-guide-part-1-buttons/
-
-******************************************************************/
-/*********************
-BUTTON DEFAULTS
-We're gonna use a placeholder selector here
-so we can use common styles. We then use this
-to load up the defaults in all our buttons.
-
-Here's a quick video to show how it works:
-http://www.youtube.com/watch?v=hwdVpKiJzac
-
-*********************/
-.blue-btn, .comment-reply-link, #submit {
-  display: inline-block;
-  position: relative;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 0.9em;
-  font-size: 34px;
-  line-height: 34px;
-  font-weight: normal;
-  padding: 0 24px;
-  border-radius: 4px;
-  border: 0;
-  cursor: pointer;
-  -webkit-transition: background-color 0.14s ease-in-out;
-  transition: background-color 0.14s ease-in-out; }
-  .blue-btn:hover, .comment-reply-link:hover, #submit:hover, .blue-btn:focus, .comment-reply-link:focus, #submit:focus {
-    color: #ffffff;
-    text-decoration: none; }
-  .blue-btn:active, .comment-reply-link:active, #submit:active {
-    top: 1px; }
-
-/*
-An example button.
-You can use this example if you want. Just replace all the variables
-and it will create a button dependant on those variables.
-*/
-.blue-btn, .comment-reply-link, #submit {
-  background-color: #2980b9; }
-  .blue-btn:hover, .comment-reply-link:hover, #submit:hover, .blue-btn:focus, .comment-reply-link:focus, #submit:focus {
-    background-color: #2574a8; }
-  .blue-btn:active, .comment-reply-link:active, #submit:active {
-    background-color: #2472a4; }
-
-/******************************************************************
-Site Name:
-Author:
-
 Stylesheet: Form Styles
 
 We put all the form and button styles in here to setup a consistent
@@ -885,7 +847,7 @@ textarea,
   padding: 0 12px;
   margin-bottom: 14px;
   font-size: 1em;
-  color: #605854;
+  color: #332A23;
   border-radius: 3px;
   vertical-align: middle;
   box-shadow: none;
@@ -893,7 +855,7 @@ textarea,
   width: 100%;
   max-width: 400px;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #999;
+  background-color: #5e5e5e;
   -webkit-transition: background-color 0.24s ease-in-out;
   transition: background-color 0.24s ease-in-out; }
   input[type="text"]:focus, input[type="text"]:active,
@@ -929,7 +891,7 @@ textarea,
   textarea:active,
   .field:focus,
   .field:active {
-    background-color: #a3a3a3; }
+    background-color: #686868; }
   input[type="text"].error, input[type="text"].is-invalid,
   input[type="password"].error,
   input[type="password"].is-invalid,
@@ -1141,563 +1103,498 @@ the other stylesheets. Remember, keep it light: Speed is Important.
 /******************************************************************
 Site Name: weblog.coletree.com
 Author:	coletree
-Stylesheet: Base Mobile Stylesheet
-
-Be light and don't over style since everything here will be
-loaded by mobile devices. You want to keep it as minimal as
-possible. This is called at the top of the main stylsheet
-and will be used across all viewports.
-
+Stylesheet: Base Weblog Stylesheet for Desktop
 ******************************************************************/
-/*********************
-Global Value
-*********************/
-* {
-  -moz-transition: all 0.3s ease-in;
-  -webkit-transition: all 0.3s ease-in;
-  -o-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in; }
-
-/*********************
-LINK STYLES
-*********************/
-a, a:visited {
-  color: #453D31;
-  text-decoration: none;
-  /* on hover */
-  /* on click */
-  /* mobile tap color */ }
-  a:hover, a:focus, a:visited:hover, a:visited:focus {
-    color: #27231c; }
-  a:link, a:visited:link {
-    /*
-    this highlights links on iPhones/iPads.
-    so it basically works like the :hover selector
-    for mobile devices.
-    */
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); }
-
 /*********************
 GENERAL STYLES
 *********************/
 body {
-  font-family: "PingHei","Lucida Grande","Lucida Sans Unicode","STHeiti","Helvetica","Arial","Verdana","sans-serif";
+  font-family: "Helvetica Neue","Helvetica","Hiragino Sans GB","Microsoft YaHei","Arial","sans-serif";
   font-size: 100%;
-  color: #605854;
-  -webkit-font-smoothing: antialiased; }
+  color: #332A23;
+  -webkit-font-smoothing: antialiased;
+  background: #f7f6f5 none repeat scroll 0 0;
+  text-align: center;
+  margin: 0; }
 
-/********************
-WORDPRESS BODY CLASSES
-style a page via class
-********************/
-/* for sites that are read right to left (i.e. hebrew) */
-/* home page */
-/* blog template page */
-/* archive page */
-/* date archive page */
-/* replace the number to the corresponding page number */
-/* search page */
-/* search result page */
-/* no results search page */
-/* individual paged search (i.e. body.search-paged-3) */
-/* 404 page */
-/* single post page */
-/* individual post page by id (i.e. body.postid-73) */
-/* individual paged single (i.e. body.single-paged-3) */
-/* attatchment page */
-/* individual attatchment page (i.e. body.attachmentid-763) */
-/* style mime type pages */
-/* author page */
-/* user nicename (i.e. body.author-samueladams) */
-/* paged author archives (i.e. body.author-paged-4) for page 4 */
-/* category page */
-/* individual category page (i.e. body.category-6) */
-/* replace the number to the corresponding page number */
-/* tag page */
-/* individual tag page (i.e. body.tag-news) */
-/* replace the number to the corresponding page number */
-/* custom page template page */
-/* individual page template (i.e. body.page-template-contact-php */
-/* replace the number to the corresponding page number */
-/* parent page template */
-/* child page template */
-/* replace the number to the corresponding page number */
-/* if user is logged in */
-/* paged items like search results or archives */
-/* individual paged (i.e. body.paged-3) */
+#container {
+  text-align: center;
+  margin: 0 auto;
+  background: #f7f6f5; }
+
 /*********************
-HEADER STYLES
+HEADER 模块
 *********************/
 .header {
   width: 100%;
-  height: 80px;
-  background: none repeat scroll 0 0 #fff;
-  border-top: 4px solid #7ba80f;
-  text-align: center;
+  height: 60px;
   position: fixed;
+  padding: 10px 0;
   top: 0;
   z-index: 999999;
-  box-shadow: 0px 1px 2px rgba(40, 40, 40, 0.06);
-  -o-box-shadow: 0px 1px 2px rgba(40, 40, 40, 0.06);
-  -moz-box-shadow: 0px 1px 2px rgba(40, 40, 40, 0.06);
-  -webkit-box-shadow: 0px 1px 2px rgba(40, 40, 40, 0.06); }
-
-#inner-header {
-  width: 960px;
-  margin: 0 auto;
-  position: relative; }
-
-.site-branding {
-  text-align: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 9999; }
-
-.site-title {
-  margin: 0 auto;
-  overflow: hidden; }
-
-.site-title a {
-  display: inline-block;
-  width: 180px;
-  height: 60px;
-  background: url(../images/logo.png) no-repeat 0 -7px;
-  text-decoration: none;
-  line-height: 99em;
-  margin-left: 8px;
-  overflow: hidden; }
-
-#menuSwitchWrap {
-  position: absolute;
-  right: 20px;
-  top: 0;
-  z-index: 9998;
-  display: none; }
-
-#menuSwitch,
-#menuSwitch:hover,
-#menuSwitch:active,
-#menuSwitch:link,
-#menuSwitch:visited,
-#menuSwitch:focus {
-  width: 56px;
-  height: 56px;
-  line-height: 56px;
-  font-size: 28px;
-  cursor: pointer;
-  opacity: 0.6;
-  outline: none; }
+  box-shadow: 0px 1px 2px rgba(100, 100, 100, 0.06);
+  -o-box-shadow: 0px 1px 2px rgba(100, 100, 100, 0.06);
+  -moz-box-shadow: 0px 1px 2px rgba(100, 100, 100, 0.06);
+  -webkit-box-shadow: 0px 1px 2px rgba(100, 100, 100, 0.06);
+  background: #f7f6f5; }
+  .header #inner-header {
+    width: 1020px;
+    height: 60px;
+    margin: 0 auto;
+    position: relative; }
+    .header #inner-header .site-branding {
+      text-align: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9999; }
+      .header #inner-header .site-branding .site-title {
+        margin: 0 auto;
+        overflow: hidden; }
+        .header #inner-header .site-branding .site-title a {
+          display: inline-block;
+          width: 180px;
+          height: 60px;
+          background: url(../images/logo.png) no-repeat 0 -7px;
+          text-decoration: none;
+          line-height: 99em;
+          vertical-align: top;
+          overflow: hidden; }
+    .header #inner-header #menuSwitchWrap {
+      position: absolute;
+      right: 20px;
+      top: 0px;
+      z-index: 9998;
+      display: none; }
+      .header #inner-header #menuSwitchWrap #menuSwitch,
+      .header #inner-header #menuSwitchWrap #menuSwitch:hover,
+      .header #inner-header #menuSwitchWrap #menuSwitch:active,
+      .header #inner-header #menuSwitchWrap #menuSwitch:link,
+      .header #inner-header #menuSwitchWrap #menuSwitch:visited,
+      .header #inner-header #menuSwitchWrap #menuSwitch:focus {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 28px;
+        cursor: pointer;
+        opacity: 0.6;
+        outline: none; }
+    .header #inner-header #navMenuWrap {
+      float: right;
+      height: 60px; }
+      .header #inner-header #navMenuWrap .nav {
+        margin: 0;
+        padding: 0;
+        /* end .menu li */
+        /* highlight current page */
+        /* end current highlighters */ }
+        .header #inner-header #navMenuWrap .nav li {
+          float: left;
+          display: inline-block;
+          padding: 18px 0;
+          /*
+          so you really have to rethink your dropdowns for mobile.
+          you don't want to have it expand too much because the
+          screen is so small. How you manage your menu should
+          depend on the project. Here's some great info on it:
+          http://www.alistapart.com/articles/organizing-mobile/
+          */ }
+          .header #inner-header #navMenuWrap .nav li a {
+            color: #453D31;
+            font-size: 17px;
+            font-weight: bold;
+            line-height: 24px;
+            height: 24px;
+            text-decoration: none;
+            display: inline-block;
+            padding: 0 24px;
+            border-right: 1px dotted #c8c2b9;
+            overflow: hidden;
+            vertical-align: top;
+            /*
+            remember this is for mobile ONLY, so there's no need
+            to even declare hover styles here, you can do it in
+            the style.scss file where it's relevant. We want to
+            keep this file as small as possible!
+            */ }
+            .header #inner-header #navMenuWrap .nav li a:hover, .header #inner-header #navMenuWrap .nav li a:focus {
+              color: #635746;
+              text-decoration: none; }
+          .header #inner-header #navMenuWrap .nav li:last-child {
+            border: 0 none; }
+          .header #inner-header #navMenuWrap .nav li ul.sub-menu li a,
+          .header #inner-header #navMenuWrap .nav li ul.children li a {
+            padding-left: 30px; }
+        .header #inner-header #navMenuWrap .nav:last-child {
+          border: 0 none; }
 
 /*********************
-NAVIGATION STYLES
-*********************/
-/*
-all navs have a .nav class applied via
-the wp_menu function; this is so we can
-easily write one group of styles for
-the navs on the site so our css is cleaner
-and more scalable.
-*/
-#navMenuWrap {
-  float: right;
-  background: #fff; }
-
-.nav {
-  margin: 0;
-  padding: 28px 0 0 0;
-  /* end .menu li */
-  /* highlight current page */
-  /* end current highlighters */ }
-  .nav li {
-    float: left;
-    display: inline-block;
-    /*
-    so you really have to rethink your dropdowns for mobile.
-    you don't want to have it expand too much because the
-    screen is so small. How you manage your menu should
-    depend on the project. Here's some great info on it:
-    http://www.alistapart.com/articles/organizing-mobile/
-    */ }
-    .nav li a {
-      color: #6f5f58;
-      font-size: 17px;
-      line-height: 20px;
-      text-decoration: none;
-      display: inline-block;
-      height: 20px;
-      padding: 0 24px;
-      border-right: 1px dotted #c8c2b9;
-      overflow: hidden;
-      /*
-      remember this is for mobile ONLY, so there's no need
-      to even declare hover styles here, you can do it in
-      the style.scss file where it's relevant. We want to
-      keep this file as small as possible!
-      */ }
-      .nav li a:hover, .nav li a:focus {
-        color: #6f5f58;
-        text-decoration: none; }
-    .nav li:last-child {
-      border: 0 none; }
-    .nav li ul.sub-menu li a,
-    .nav li ul.children li a {
-      padding-left: 30px; }
-  .nav:last-child {
-    border: 0 none; }
-
-/* end .nav */
-/*********************
-POSTS & CONTENT STYLES
+首页，列表页内容样式设置
 *********************/
 #content {
   width: 100%;
-  padding: 50px 0;
-  text-align: center;
-  background: url(../images/bg_main.png) repeat; }
+  padding: 140px 0 0;
+  text-align: center; }
 
 #inner-content {
-  margin: 0 auto;
-  /*width: 920px;
-  max-width: 920px;
-  min-width: 320px;
-  margin: 0 auto;*/ }
+  text-align: center;
+  width: 1020px;
+  margin: 0 auto; }
 
-.hentry {
-  margin-bottom: 120px; }
-  .hentry .feature-image {
-    text-align: center; }
-    .hentry .feature-image img {
-      max-width: 100%;
+#leftContent {
+  float: left;
+  width: 720px;
+  min-height: 1px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-size: 18px;
+  text-align: left; }
+
+.postListItem {
+  border: solid 1px #eee;
+  background: #fff;
+  margin-bottom: 40px;
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(100, 100, 100, 0.05);
+  -moz-box-shadow: 0px 2px 4px 0px rgba(100, 100, 100, 0.05);
+  box-shadow: 0px 2px 4px 0px rgba(100, 100, 100, 0.05); }
+  .postListItem .featurePic {
+    text-align: center;
+    width: 100%;
+    height: 360px;
+    overflow: hidden; }
+    .postListItem .featurePic a {
+      display: block; }
+    .postListItem .featurePic img {
+      width: 100%;
+      height: auto; }
+  .postListItem .listItemContent {
+    display: block;
+    vertical-align: top;
+    padding: 40px 50px 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    text-decoration: none; }
+    .postListItem .listItemContent h3 {
+      color: #453D31;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 16px; }
+    .postListItem .listItemContent .listItemSummary {
+      color: #5e5e5e;
+      font-size: 18px;
+      line-height: 1.6em;
+      margin-bottom: 10px;
+      text-align: justify; }
+  .postListItem footer {
+    margin: 0 50px;
+    padding: 20px 0 30px;
+    border-top: dotted 1px #e1e1e1; }
+    .postListItem footer .listItemMeta {
+      color: #aaa;
+      font-size: 14px; }
+      .postListItem footer .listItemMeta a {
+        color: #aaa; }
+
+.homeMore {
+  text-align: center;
+  -webkit-box-shadow: 0px 4px 8px 0px rgba(100, 100, 100, 0.05);
+  -moz-box-shadow: 0px 4px 8px 0px rgba(100, 100, 100, 0.05);
+  box-shadow: 0px 4px 8px 0px rgba(100, 100, 100, 0.05); }
+  .homeMore a {
+    display: block;
+    font-size: 18px;
+    color: #453D31;
+    padding: 30px;
+    background: #fff;
+    text-decoration: none; }
+  .homeMore .count {
+    font-size: 16px; }
+
+/*post-format自定义------------------------------*/
+.postListItem.post_format-post-format-status .listItemContent {
+  padding: 30px 0; }
+  .postListItem.post_format-post-format-status .listItemContent .listItemSummary {
+    margin-bottom: 0; }
+    .postListItem.post_format-post-format-status .listItemContent .listItemSummary p {
+      padding: 0 50px;
+      margin-bottom: 10px; }
+    .postListItem.post_format-post-format-status .listItemContent .listItemSummary .listItemMeta {
+      color: #aaa;
+      font-size: 14px;
+      padding: 0 50px; }
+
+.postListItem.post_format-post-format-image .listItemContent {
+  padding: 0 0 30px; }
+  .postListItem.post_format-post-format-image .listItemContent .listItemSummary {
+    margin-bottom: 0; }
+    .postListItem.post_format-post-format-image .listItemContent .listItemSummary img {
       width: 100%;
       height: auto;
-      vertical-align: top; }
-  .hentry .article-header {
-    padding: 30px 0; }
-  .hentry .entry-title,
-  .hentry .entry-title a {
-    color: #C95B28;
-    text-decoration: none;
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-    font-weight: 400;
-    letter-spacing: -0.04em; }
-    .hentry .entry-title:hover,
-    .hentry .entry-title a:hover {
-      color: #E25A1B; }
-  .hentry .entry-meta-wrap {
-    color: #eee;
-    font-size: 12px;
-    text-align: center;
-    margin-bottom: 40px;
-    /*background:url(../images/dashline.png) no-repeat center center;*/ }
-    .hentry .entry-meta-wrap a {
-      color: #ccc; }
-      .hentry .entry-meta-wrap a:hover {
-        color: #F6512C; }
-    .hentry .entry-meta-wrap .entry-meta {
-      /*background: url(../images/bg_main.png) repeat;*/ }
-    .hentry .entry-meta-wrap .entry-meta-edit {
-      margin-left: 16px; }
-  .hentry footer {
-    color: #ddd;
-    font-size: 20px;
-    text-align: center;
-    background: url(../images/dashline.png) no-repeat center center; }
-    .hentry footer .article-footer-wrap {
-      background: url(../images/bg_main.png) repeat;
-      padding: 0 16px; }
-
-/* end .hentry */
-.single-title,
-.page-title,
-.entry-title {
-  margin: 0; }
-
-/* want to style individual post classes? Booya! */
-/* post by id (i.e. post-3) */
-/* general post style */
-/* general article on a page style */
-/* general style on an attatchment */
-/* sticky post style */
-/* hentry class */
-/* style by category (i.e. category-videos) */
-/* style by tag (i.e. tag-news) */
-/* entry content */
-.entry-content {
-  color: #332A23;
-  font-size: 20px;
-  line-height: 1.8em;
-  text-align: left;
-  padding: 0 60px;
-  /*
-  image alignment on a screen this size may be
-  a bit difficult. It's set to start aligning
-  and floating images at the next breakpoint,
-  but it's up to you. Feel free to change it up.
-  */ }
-  .entry-content p {
-    margin: 0 0 40px; }
-    .entry-content p a {
-      color: #57890B; }
-      .entry-content p a:hover {
-        color: #57890B;
-        border-bottom: solid 1px #BBC6B1; }
-    .entry-content p img {
-      box-shadow: 0px 0px 8px rgba(40, 40, 40, 0.06);
-      -o-box-shadow: 0px 0px 8px rgba(40, 40, 40, 0.06);
-      -moz-box-shadow: 0px 0px 8px rgba(40, 40, 40, 0.06);
-      -webkit-box-shadow: 0px 0px 8px rgba(40, 40, 40, 0.06); }
-  .entry-content table {
-    width: 100%;
-    border: 1px solid #999;
-    margin-bottom: 1.5em; }
-    .entry-content table caption {
-      margin: 0 0 7px;
-      font-size: 0.75em;
-      color: #9fa6b4;
-      text-transform: uppercase;
-      letter-spacing: 1px; }
-  .entry-content tr {
-    border-bottom: 1px solid #999; }
-    .entry-content tr:nth-child(even) {
-      background-color: #f8f9fa; }
-  .entry-content td {
-    padding: 7px;
-    border-right: 1px solid #999; }
-    .entry-content td:last-child {
-      border-right: 0; }
-  .entry-content th {
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #999;
-    border-right: 1px solid #999; }
-    .entry-content th:last-child {
-      border-right: 0; }
-  .entry-content blockquote {
-    margin: 0 0 40px;
-    padding: 20px 30px;
-    border-left: 3px solid #BFBAB5;
-    font-size: 16px;
-    font-style: italic;
-    color: #776e64;
-    background: rgba(255, 255, 255, 0.6); }
-    .entry-content blockquote p {
-      margin-bottom: 0; }
-  .entry-content li {
-    list-style: disc outside none;
-    margin-bottom: 12px; }
-  .entry-content .mejs-container {
-    margin-bottom: 30px; }
-  .entry-content img {
-    margin: 0 0 40px;
-    max-width: 100%;
-    height: auto;
-    vertical-align: top; }
-  .entry-content .alignleft, .entry-content img.alignleft {
-    display: inline;
-    float: left;
-    margin-top: 0;
-    margin-right: 40px; }
-  .entry-content .alignright, .entry-content img.alignright {
-    display: inline;
-    float: right;
-    margin-top: 0;
-    margin-left: 40px; }
-  .entry-content .aligncenter, .entry-content img.aligncenter {
-    clear: both;
-    display: block;
-    margin-left: auto;
-    margin-right: auto; }
-  .entry-content .size-auto,
-  .entry-content .size-full,
-  .entry-content .size-large,
-  .entry-content .size-medium,
-  .entry-content .size-thumbnail {
-    max-width: 100%;
-    height: auto; }
-  .entry-content img.size-full, .entry-content img.size-large {
-    _width: 100%; }
-  .entry-content pre {
-    background: #333333;
-    color: #f8f9fa;
-    font-size: 0.9em;
-    padding: 1.5em;
-    margin: 0 0 1.5em;
-    border-radius: 3px; }
-
-/* end .entry-content */
-.wp-caption {
-  max-width: 100%;
-  background: #fefefe;
-  padding: 8px;
-  margin: 0 auto 30px;
-  /* images inside wp-caption */ }
-  .wp-caption img {
-    max-width: 100%;
-    margin-bottom: 0;
-    width: 100%; }
-  .wp-caption p.wp-caption-text {
-    color: #888;
-    font-size: 0.8em;
-    margin: 8px 0 4px;
-    text-align: center; }
-
-/* end .wp-caption */
-/* image gallery styles */
-/* end .gallery */
-/* gallery caption styles */
-.tags {
-  margin: 0; }
-
-/*thoughs post format*/
-.post_thoughs_format {
-  max-width: 760px;
-  min-width: 320px;
-  padding: 40px 0 0;
-  margin: 0 auto; }
-  .post_thoughs_format .entry-content {
-    max-width: 720px;
-    padding: 0 0; }
-    .post_thoughs_format .entry-content p {
-      padding: 0 40px; }
-
-/*recommend post format*/
-.post_recommend_format {
-  max-width: 720px;
-  min-width: 320px;
-  padding: 40px 0 0;
-  margin: 0 auto; }
-  .post_recommend_format .entry-content {
-    max-width: 680px;
-    min-width: 320px;
-    padding: 0 20px; }
-
-.recommend_resource {
-  border: solid 1px #eee;
-  background: #fefefe;
-  padding: 29px;
-  margin-bottom: 40px; }
-  .recommend_resource .recommend_resource_img {
-    float: left;
-    margin-right: 40px; }
-    .recommend_resource .recommend_resource_img img {
       vertical-align: top;
-      max-width: 120px;
-      height: auto; }
-  .recommend_resource .recommend_resource_content {
-    text-align: left;
-    overflow: hidden; }
-    .recommend_resource .recommend_resource_content h5 {
-      font-size: 16px;
-      font-weight: bold;
-      color: #333;
-      padding-top: 4px;
-      margin-bottom: 12px; }
-    .recommend_resource .recommend_resource_content p {
-      font-size: 16px;
-      color: #666;
-      line-height: 1.6em;
-      margin-bottom: 16px; }
-    .recommend_resource .recommend_resource_content div a {
-      color: #3377aa; }
+      margin-bottom: 20px; }
+    .postListItem.post_format-post-format-image .listItemContent .listItemSummary p {
+      padding: 0 50px;
+      margin-bottom: 10px; }
+    .postListItem.post_format-post-format-image .listItemContent .listItemSummary .listItemMeta {
+      color: #aaa;
+      font-size: 14px;
+      padding: 0 50px; }
 
-/*journal post format*/
-.post_journal_format {
-  padding: 0 0;
-  margin: 0 auto; }
-  .post_journal_format .article-header {
-    position: relative;
-    max-height: 520px;
-    min-height: 400px;
-    background: url(../images/journal_head_bg.png) 100% 100%, linear-gradient(10deg, #217142, #214271), none;
-    background-size: cover;
-    width: 100%;
-    padding: 0;
-    margin-bottom: 4em;
-    overflow: hidden; }
-    .post_journal_format .article-header .feature-image {
-      min-height: 400px;
-      min-width: 720px;
-      overflow: hidden;
-      width: 100%;
-      opacity: 0.8;
-      position: absolute; }
-      .post_journal_format .article-header .feature-image img {
-        -webkit-filter: blur(10px);
-        -moz-filter: blur(100px);
-        -o-filter: blur(10px);
-        -ms-filter: blur(10px);
-        filter: blur(10px); }
-  .post_journal_format .journal-header {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-    text-align: center;
-    z-index: 999; }
-  .post_journal_format h1 {
-    padding: 60px 0 120px;
-    margin: 0 auto;
-    font-size: 36px; }
-  .post_journal_format .journal-meta {
-    font-size: 16px;
-    color: #ddd;
-    font-weight: normal;
-    padding-top: 60px; }
-    .post_journal_format .journal-meta .place {
-      padding: 0 16px; }
-    .post_journal_format .journal-meta .date {
-      padding: 0 16px; }
-  .post_journal_format .entry-content {
-    min-width: 100%;
-    max-width: 920px;
-    padding: 0 0;
-    text-align: center; }
-    .post_journal_format .entry-content p {
-      max-width: 600px;
-      min-width: 320px;
-      padding: 0 20px;
-      margin: 0 auto 2.4em;
-      text-align: left; }
-    .post_journal_format .entry-content div.su-row {
-      width: 100%;
-      max-width: 760px;
-      min-width: 320px;
-      margin: 0 auto 2.4em; }
-      .post_journal_format .entry-content div.su-row img {
-        width: auto;
-        max-width: auto; }
-    .post_journal_format .entry-content > img {
-      max-width: 760px;
-      min-width: 320px;
-      margin: 0 auto 2.4em; }
-  .post_journal_format #single-article-footer {
-    max-width: 720px;
-    min-width: 320px;
-    margin: 0 auto;
-    margin-bottom: 80px; }
-  .post_journal_format #related_article {
-    max-width: 720px;
-    min-width: 320px;
-    margin: 0 auto 80px; }
-  .post_journal_format #ds-thread {
-    max-width: 720px;
-    min-width: 320px;
-    margin: 0 auto 80px; }
+.postListItem.post_format-post-format-video .listItemContent {
+  padding: 0 0 30px; }
+  .postListItem.post_format-post-format-video .listItemContent .listItemSummary {
+    margin-bottom: 0; }
+    .postListItem.post_format-post-format-video .listItemContent .listItemSummary p {
+      padding: 0 50px;
+      margin-bottom: 10px; }
+    .postListItem.post_format-post-format-video .listItemContent .listItemSummary .listItemMeta {
+      color: #aaa;
+      font-size: 14px;
+      padding: 0 50px; }
+      .postListItem.post_format-post-format-video .listItemContent .listItemSummary .listItemMeta a {
+        color: #aaa; }
 
-.hentry.post_journal_format .entry-title,
-.hentry.post_journal_format .entry-title a {
-  color: #fff;
-  font-size: 36px;
+/*文章存档页-----*/
+.archive-title {
+  font-size: 24px;
   font-weight: bold;
-  text-align: center;
-  text-decoration: none; }
+  color: #999;
+  text-align: left;
+  padding: 40px; }
+
+/*单篇文章页-----*/
+#single-content {
+  padding: 100px 0; }
+  #single-content #single-content-wrap {
+    text-align: center;
+    width: 760px;
+    margin: 0 auto;
+    /* want to style individual post classes? Booya! */
+    /* post by id (i.e. post-3) */
+    /* general post style */
+    /* general article on a page style */
+    /* general style on an attatchment */
+    /* sticky post style */
+    /* style by category (i.e. category-videos) */
+    /* style by tag (i.e. tag-news) */
+    /* end .hentry */
+    /* entry content */
+    /* end .entry-content */
+    /* end .wp-caption */ }
+    #single-content #single-content-wrap .single-title,
+    #single-content #single-content-wrap .page-title,
+    #single-content #single-content-wrap .entry-title {
+      margin: 0; }
+    #single-content #single-content-wrap .hentry {
+      margin-bottom: 120px; }
+      #single-content #single-content-wrap .hentry .article-header {
+        padding: 30px 20px; }
+        #single-content #single-content-wrap .hentry .article-header .entry-title {
+          color: #111111;
+          text-align: center;
+          font-size: 30px;
+          font-weight: bolder;
+          line-height: 1.4em;
+          margin-bottom: 20px; }
+        #single-content #single-content-wrap .hentry .article-header .entry-meta-wrap {
+          color: #aaa;
+          font-size: 16px;
+          text-align: center;
+          margin-bottom: 10px;
+          width: 100%;
+          box-sizing: border-box; }
+          #single-content #single-content-wrap .hentry .article-header .entry-meta-wrap span {
+            margin-right: 8px; }
+          #single-content #single-content-wrap .hentry .article-header .entry-meta-wrap a {
+            color: #aaa; }
+            #single-content #single-content-wrap .hentry .article-header .entry-meta-wrap a:hover {
+              color: #F6512C; }
+      #single-content #single-content-wrap .hentry .feature-image {
+        text-align: center; }
+        #single-content #single-content-wrap .hentry .feature-image img {
+          max-width: 100%;
+          width: 100%;
+          height: auto;
+          vertical-align: top; }
+      #single-content #single-content-wrap .hentry footer {
+        color: #ddd;
+        font-size: 20px;
+        text-align: center;
+        background: url(../images/dashline.png) #fff no-repeat center top;
+        padding: 30px 0; }
+    #single-content #single-content-wrap .entry-content {
+      color: #332A23;
+      font-size: 18px;
+      line-height: 32px;
+      text-align: justify;
+      padding: 0 60px;
+      word-spacing: -1px;
+      /*
+      image alignment on a screen this size may be
+      a bit difficult. It's set to start aligning
+      and floating images at the next breakpoint,
+      but it's up to you. Feel free to change it up.
+      */ }
+      #single-content #single-content-wrap .entry-content p {
+        margin: 0 0 40px; }
+        #single-content #single-content-wrap .entry-content p a {
+          color: #57890B; }
+          #single-content #single-content-wrap .entry-content p a:hover {
+            color: #57890B;
+            border-bottom: solid 1px #BBC6B1; }
+        #single-content #single-content-wrap .entry-content p img {
+          box-shadow: 0px 0px 8px rgba(40, 40, 40, 0.06);
+          -o-box-shadow: 0px 0px 8px rgba(40, 40, 40, 0.06);
+          -moz-box-shadow: 0px 0px 8px rgba(40, 40, 40, 0.06);
+          -webkit-box-shadow: 0px 0px 8px rgba(40, 40, 40, 0.06); }
+      #single-content #single-content-wrap .entry-content table {
+        width: 100%;
+        border: 1px solid #5e5e5e;
+        margin-bottom: 1.5em; }
+        #single-content #single-content-wrap .entry-content table caption {
+          margin: 0 0 7px;
+          font-size: 0.75em;
+          color: #9fa6b4;
+          text-transform: uppercase;
+          letter-spacing: 1px; }
+      #single-content #single-content-wrap .entry-content tr {
+        border-bottom: 1px solid #5e5e5e; }
+        #single-content #single-content-wrap .entry-content tr:nth-child(even) {
+          background-color: #cccccc; }
+      #single-content #single-content-wrap .entry-content td {
+        padding: 7px;
+        border-right: 1px solid #5e5e5e; }
+        #single-content #single-content-wrap .entry-content td:last-child {
+          border-right: 0; }
+      #single-content #single-content-wrap .entry-content th {
+        background-color: #cccccc;
+        border-bottom: 1px solid #5e5e5e;
+        border-right: 1px solid #5e5e5e; }
+        #single-content #single-content-wrap .entry-content th:last-child {
+          border-right: 0; }
+      #single-content #single-content-wrap .entry-content blockquote {
+        margin: 0 0 40px;
+        padding: 20px 30px;
+        border-left: 3px solid #BFBAB5;
+        font-size: 16px;
+        font-style: italic;
+        color: #776e64;
+        background: rgba(255, 255, 255, 0.6); }
+        #single-content #single-content-wrap .entry-content blockquote p {
+          margin-bottom: 0; }
+      #single-content #single-content-wrap .entry-content li {
+        list-style: disc outside none;
+        margin-bottom: 12px; }
+      #single-content #single-content-wrap .entry-content .mejs-container {
+        margin-bottom: 30px; }
+      #single-content #single-content-wrap .entry-content img {
+        margin: 0 0 30px;
+        max-width: 100%;
+        height: auto;
+        vertical-align: top;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px; }
+      #single-content #single-content-wrap .entry-content .alignleft, #single-content #single-content-wrap .entry-content img.alignleft {
+        display: inline;
+        float: left;
+        margin-top: 0;
+        margin-right: 40px; }
+      #single-content #single-content-wrap .entry-content .alignright, #single-content #single-content-wrap .entry-content img.alignright {
+        display: inline;
+        float: right;
+        margin-top: 0;
+        margin-left: 40px; }
+      #single-content #single-content-wrap .entry-content .aligncenter, #single-content #single-content-wrap .entry-content img.aligncenter {
+        clear: both;
+        display: block;
+        margin-left: auto;
+        margin-right: auto; }
+      #single-content #single-content-wrap .entry-content .size-auto,
+      #single-content #single-content-wrap .entry-content .size-full,
+      #single-content #single-content-wrap .entry-content .size-large,
+      #single-content #single-content-wrap .entry-content .size-medium,
+      #single-content #single-content-wrap .entry-content .size-thumbnail {
+        max-width: 100%;
+        height: auto; }
+      #single-content #single-content-wrap .entry-content img.size-full, #single-content #single-content-wrap .entry-content img.size-large {
+        _width: 100%; }
+      #single-content #single-content-wrap .entry-content pre {
+        background: #111111;
+        color: #cccccc;
+        font-size: 0.9em;
+        padding: 1.5em;
+        margin: 0 0 1.5em;
+        border-radius: 3px; }
+    #single-content #single-content-wrap .wp-caption {
+      max-width: 100%;
+      background: #fefefe;
+      -webkit-box-shadow: 0px 2px 4px 0px rgba(100, 100, 100, 0.05);
+      -moz-box-shadow: 0px 2px 4px 0px rgba(100, 100, 100, 0.05);
+      box-shadow: 0px 2px 4px 0px rgba(100, 100, 100, 0.05);
+      margin: 0 auto 30px;
+      /* images inside wp-caption */ }
+      #single-content #single-content-wrap .wp-caption img {
+        max-width: 100%;
+        margin-bottom: 0;
+        width: 100%; }
+      #single-content #single-content-wrap .wp-caption p.wp-caption-text {
+        color: #888;
+        font-size: 16px;
+        font-style: italic;
+        padding: 8px 16px;
+        text-align: center; }
+    #single-content #single-content-wrap .tags {
+      margin: 0; }
+    #single-content #single-content-wrap .video-js {
+      width: 640px;
+      height: 480px; }
+
+.entry-meta-wrap-bottom {
+  color: #aaa;
+  font-size: 16px;
+  text-align: left;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 0 60px;
+  box-sizing: border-box; }
+  .entry-meta-wrap-bottom span {
+    margin-right: 8px; }
+  .entry-meta-wrap-bottom a {
+    color: #aaa; }
+    .entry-meta-wrap-bottom a:hover {
+      color: #F6512C; }
+
+.post_view_count {
+  color: #999;
+  font-size: 16px;
+  text-align: left;
+  padding: 10px 60px; }
+
+/*不同类型单篇文章样式--------------------------------------*/
+#single-content #single-content-wrap .post_format-post-format-status .entry-content {
+  background: #fff;
+  border: solid 1px #eee;
+  padding: 30px 30px 20px;
+  box-sizing: border-box;
+  font-weight: bold;
+  margin: 0 60px 20px; }
+  #single-content #single-content-wrap .post_format-post-format-status .entry-content .entry-meta-wrap-bottom {
+    padding: 0; }
 
 /******************************************************************
-Share jiathis Style
+单篇文章底部关注赞赏
 ******************************************************************/
 #single-article-footer {
-  margin: 50px 0; }
+  margin: 30px 60px; }
+  #single-article-footer table {
+    width: 100%; }
+    #single-article-footer table p {
+      padding: 20px 50px;
+      text-align: justify; }
+    #single-article-footer table img {
+      width: 100%;
+      height: auto; }
 
 #single-article-footer .jiathis_style {
   text-align: center;
@@ -1720,7 +1617,7 @@ Share jiathis Style
   display: inline-block;
   padding: 0 4px !important;
   margin: 0 8px;
-  background: url("../images/bg_main.png") repeat; }
+  background: #f5f5f5; }
 
 #single-article-footer .jiathis_style .jtico {
   cursor: pointer;
@@ -1760,34 +1657,7 @@ Share jiathis Style
     background-position: -32px -128px; }
 
 /******************************************************************
-Relate Post
-******************************************************************/
-#related_article {
-  margin-bottom: 80px; }
-  #related_article h4 {
-    color: #666;
-    text-align: center;
-    padding: 16px;
-    border-bottom: dotted 1px #ddd; }
-  #related_article ul {
-    text-align: left; }
-  #related_article .relatedListItem {
-    padding: 20px;
-    border-bottom: solid 1px #eee;
-    overflow: hidden; }
-    #related_article .relatedListItem h3 {
-      margin-bottom: 8px; }
-      #related_article .relatedListItem h3 a {
-        color: #c95b28;
-        font-size: 20px; }
-    #related_article .relatedListItem .listItemSummary {
-      color: #666;
-      font-size: 16px;
-      line-height: 1.8em;
-      margin-bottom: 8px; }
-
-/******************************************************************
-PAGE NAVI STYLES
+翻页导航栏
 ******************************************************************/
 .pagination,
 .wp-prev-next {
@@ -1818,9 +1688,9 @@ PAGE NAVI STYLES
     padding: 0.75em;
     min-width: 1em;
     display: block;
-    color: #605854; }
+    color: #332A23; }
     .pagination a:hover, .pagination a:focus, .pagination span:hover, .pagination span:focus {
-      background-color: #605854;
+      background-color: #332A23;
       color: #ffffff; }
   .pagination .current {
     cursor: default;
@@ -1829,8 +1699,6 @@ PAGE NAVI STYLES
       color: #C95B28;
       background-color: #ffffff; }
 
-/* end .bones_page_navi */
-/* fallback previous & next links */
 .wp-prev-next .prev-link {
   float: left; }
 .wp-prev-next .next-link {
@@ -1840,82 +1708,87 @@ PAGE NAVI STYLES
 /******************************************************************
 COMMENT STYLES
 ******************************************************************/
-/* h3 comment title */
+.single-volume-comment {
+  margin: 0 auto;
+  width: 640px;
+  padding: 0 60px; }
+
 #comments-title {
-  padding: 0.75em;
+  color: #999;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  padding: 10px 40px;
   margin: 0;
-  border-top: 1px solid #f8f9fa;
-  /* number of comments span */ }
+  background: #fff;
+  border-bottom: 1px solid #eee; }
 
 .commentlist {
   margin: 0;
   list-style-type: none; }
 
+.pingback,
 .comment {
   position: relative;
   clear: both;
   overflow: hidden;
-  padding: 1.5em;
-  border-bottom: 1px solid #f8f9fa;
+  padding: 20px 40px;
+  border-bottom: 1px solid #eee;
   /* vcard */
-  /* end .commentlist .vcard */
-  /* end children */
   /* general comment classes */ }
+  .pingback .comment-author,
   .comment .comment-author {
-    padding: 7px;
-    border: 0; }
-  .comment .vcard {
-    margin-left: 50px; }
-    .comment .vcard cite.fn {
-      font-weight: 700;
-      font-style: normal; }
-    .comment .vcard time {
-      display: block;
-      font-size: 0.9em;
-      font-style: italic; }
-      .comment .vcard time a {
-        color: #9fa6b4;
-        text-decoration: none; }
-        .comment .vcard time a:hover {
-          text-decoration: underline; }
-    .comment .vcard .avatar {
-      position: absolute;
-      left: 16px;
-      border-radius: 50%; }
+    color: #111;
+    border: 0;
+    margin-bottom: 8px; }
+  .pingback .comment-edit-link,
+  .comment .comment-edit-link {
+    display: none; }
+  .pingback .vcard cite.fn,
+  .comment .vcard cite.fn {
+    display: block;
+    font-weight: bold;
+    font-style: normal;
+    text-align: left; }
+  .pingback .vcard time,
+  .comment .vcard time {
+    display: none; }
+  .pingback .vcard .avatar,
+  .comment .vcard .avatar {
+    display: none; }
+  .pingback:last-child,
   .comment:last-child {
     margin-bottom: 0; }
-  .comment .children {
-    margin: 0;
-    /* variations */
-    /* change number for different depth */ }
+  .pingback[class*=depth-],
   .comment[class*=depth-] {
     margin-top: 1.1em; }
+  .pingback.depth-1,
   .comment.depth-1 {
     margin-left: 0;
     margin-top: 0; }
+  .pingback:not(.depth-1),
   .comment:not(.depth-1) {
     margin-top: 0;
     margin-left: 7px;
     padding: 7px; }
+  .pingback.odd,
   .comment.odd {
     background-color: #ffffff; }
+  .pingback.even,
   .comment.even {
-    background: #f8f9fa; }
+    background-color: #ffffff; }
 
-/* comment meta */
 /* comment content */
 .comment_content p {
-  margin: 0.7335em 0 1.5em;
   font-size: 1em;
-  line-height: 1.5em; }
+  line-height: 1.5em;
+  text-align: left; }
 
-/* end .commentlist .comment_content */
 /* comment reply link */
 .comment-reply-link {
   font-size: 0.9em;
   float: right; }
 
-/* end .commentlist .comment-reply-link */
 /* edit comment link */
 .comment-edit-link {
   font-style: italic;
@@ -1928,7 +1801,7 @@ COMMENT FORM STYLES
 ******************************************************************/
 .comment-respond {
   padding: 1.5em;
-  border-top: 1px solid #f8f9fa; }
+  border-top: 1px solid #eee; }
 
 #reply-title {
   margin: 0; }
@@ -1938,14 +1811,14 @@ COMMENT FORM STYLES
   font-style: italic;
   margin: 0; }
   .logged-in-as a {
-    color: #605854; }
+    color: #332A23; }
 
 .comment-form-comment {
   margin: 1.5em 0 0.75em; }
 
 .form-allowed-tags {
   padding: 1.5em;
-  background-color: #f8f9fa;
+  background-color: #eee;
   font-size: 0.9em; }
 
 /* comment submit button */
@@ -1957,346 +1830,164 @@ COMMENT FORM STYLES
 #comment-form-title {
   margin: 0 0 1.1em; }
 
-/* cancel comment reply link */
-/* logged in comments */
-/* allowed tags */
 #allowed_tags {
   margin: 1.5em 10px 0.7335em 0; }
 
-/* no comments */
-.nocomments {
-  margin: 0 20px 1.1em; }
-
-/*********************
-DuoShuo Style
-*********************/
-article #ds-thread {
-  margin-bottom: 80px; }
-
-article #ds-reset {
-  padding: 0 20px; }
-
-article #ds-thread #ds-reset .ds-replybox {
-  margin: 0 0;
-  padding: 0 0 0 70px !important; }
-
-article #ds-thread #ds-reset li.ds-tab {
-  margin: 0 0 0 6px; }
-
-article #ds-thread #ds-reset .ds-replybox .ds-avatar {
-  left: 4px !important; }
-
-article #ds-thread #ds-reset .ds-comments {
-  border-bottom: 0 none; }
-
-article #ds-thread #ds-reset .ds-comments-info {
-  margin-top: 0;
-  padding: 16px 0; }
-
-article #ds-thread #ds-reset .ds-post-self {
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 10px 4px; }
-
-article #ds-thread #ds-reset ul {
-  text-align: right; }
-
-article #ds-thread #ds-reset .ds-sort {
-  display: none; }
-
-article #ds-thread #ds-reset .ds-comment-body {
-  text-align: left;
-  padding-left: 70px; }
-
-article .ds-powered-by {
-  display: none; }
-
-article #ds-reset li.ds-post-placeholder {
-  display: none; }
+.no-comments {
+  color: #999;
+  font-size: 14px;
+  text-align: center;
+  line-height: 2em;
+  padding: 20px;
+  margin: 20px 0 0;
+  background: #fff; }
 
 /*********************
 SIDEBARS & ASIDES
 *********************/
-.widgettitle {
-  font-size: 18px;
-  padding: 6px 0;
-  border-bottom: 1px solid #ddd; }
+.sidebar {
+  width: 260px;
+  box-sizing: border-box;
+  float: right;
+  min-height: 1px;
+  padding: 0; }
+  .sidebar .widgettitle {
+    color: #333;
+    font-size: 16px;
+    font-weight: bolder;
+    padding: 0 0 14px;
+    border-bottom: 1px dotted #ddd;
+    margin-bottom: 10px; }
+  .sidebar .widget {
+    text-align: left;
+    margin-bottom: 70px; }
+    .sidebar .widget ul li {
+      color: #cccccc;
+      padding: 6px 0;
+      /* deep nesting */ }
+      .sidebar .widget ul li a {
+        color: #453d31; }
+    .sidebar .widget img {
+      width: 260px;
+      height: auto;
+      vertical-align: top;
+      border-radius: 4px; }
 
-.widget {
-  text-align: left;
-  margin-bottom: 60px; }
-  .widget ul li {
-    padding: 6px 0;
-    /* deep nesting */ }
-
-#sidebar1 {
-  max-width: 720px;
-  min-width: 320px;
-  padding: 0 20px;
-  margin: 0 auto; }
-
-#sidebar2 {
-  max-width: 720px;
-  min-width: 320px;
-  padding: 0 20px;
-  margin: 0 auto; }
+#sidebar1 .widget_custom_html {
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: justify; }
+  #sidebar1 .widget_custom_html img {
+    margin-bottom: 20px; }
 
 /*********************
-FOOTER STYLES
+页脚样式
 *********************/
-/*
-if you checked out the link above:
-http://www.alistapart.com/articles/organizing-mobile/
-you'll want to style the footer nav a bit more in-depth. Remember to keep it simple because you'll have to
-override these styles for the desktop view.
-*/
 .footer {
   clear: both;
-  padding: 60px 0 0;
-  background: #fff; }
+  padding: 50px 0;
+  background: #f7f6f5;
+  margin: 80px 0 0; }
   .footer #inner-footer {
-    width: 920px;
-    margin: 0 auto; }
-
-#footerWidget {
-  padding: 0 20px; }
-  #footerWidget .widgetTitle {
-    font-size: 14px;
-    font-weight: bold;
-    color: #605854;
-    border-bottom: 1px solid #eee;
-    padding: 0 0 10px;
-    margin-bottom: 8px; }
-  #footerWidget .footer-widget {
-    margin-bottom: 60px; }
-  #footerWidget ul li {
-    font-size: 10px;
-    color: #aaa;
-    list-style: disc outside;
-    padding: 6px 0 6px 2px;
-    margin-left: 10px; }
-  #footerWidget a {
-    color: #706359;
-    font-size: 14px; }
-  #footerWidget .footer-first-widget {
-    width: 20%;
-    float: left;
-    margin-right: 80px; }
-  #footerWidget .footer-second-widget {
-    width: 20%;
-    float: left; }
-  #footerWidget .footer-last-widget {
-    float: right;
-    width: 260px;
-    font-size: 12px;
-    color: #aaa;
-    position: relative; }
-    #footerWidget .footer-last-widget p {
-      font-size: 13px;
-      line-height: 26px;
-      padding: 0 0 20px 0;
-      border-bottom: solid 1px #f3f3f3; }
-      #footerWidget .footer-last-widget p a {
-        font-size: 12px; }
-    #footerWidget .footer-last-widget img {
-      position: absolute;
-      bottom: -30px;
-      right: 0;
-      z-index: 1000; }
-
-.footer-bottom {
-  color: #aaa;
-  font-size: 12px;
-  padding: 20px;
-  background: #fefefe;
-  border-top: solid 1px #efefef; }
-  .footer-bottom .copyright {
-    float: left; }
-  .footer-bottom .other-links {
-    float: right; }
-    .footer-bottom .other-links li {
-      float: right;
-      margin-left: 8px; }
-      .footer-bottom .other-links li a {
-        color: #aaa; }
-
-/*********************
-Archive
-*********************/
-/*********************
-Page Style
-*********************/
-/*Home Page-------------------------------------------------------*/
-#homePage-content {
-  background: url("../images/bg_main.png") repeat scroll 0 0 transparent;
-  padding: 60px 0 0;
-  text-align: center;
-  width: 100%;
-  border-bottom: solid 20px #FCFBF9; }
-
-#homePage {
-  color: #332a23;
-  font-size: 18px;
-  text-align: left;
-  padding: 0 0; }
-
-#newestPost {
-  max-width: 760px;
-  min-width: 320px;
-  padding: 0 20px;
-  margin: 0 auto 4em; }
-  #newestPost h1 {
-    margin-bottom: 16px; }
-  #newestPost .entry-content {
-    padding: 0 0;
-    text-align: center; }
-    #newestPost .entry-content p {
-      max-width: 600px;
-      margin: 0 auto 40px;
-      text-align: left; }
-  #newestPost .hentry {
-    margin-bottom: 40px; }
-  #newestPost .entry-meta-date {
-    text-align: center;
-    color: #ccc;
-    font-size: 14px; }
-    #newestPost .entry-meta-date a {
-      color: #aaa; }
-
-.home #inner-content {
-  max-width: 720px;
-  min-width: 320px;
-  padding: 0 20px; }
-
-.homePostListWrap {
-  padding: 40px 0;
-  background: #fff;
-  border-bottom: solid 1px #F2F0ED; }
-
-.homePostList {
-  max-width: 720px;
-  min-width: 320px;
-  padding: 0 20px;
-  margin: 0 auto; }
-
-.homePostListTitle {
-  text-align: center;
-  font-size: 14px;
-  line-height: 40px;
-  height: 40px;
-  margin: 0 auto 10px;
-  background: url("../images/recentPost_bg.png") center center repeat-x; }
-  .homePostListTitle span {
-    display: inline-block;
-    color: #999;
-    padding: 0 20px;
-    background: #fff;
-    line-height: 40px; }
-
-.postListItem {
-  padding: 40px 0;
-  border-bottom: solid 1px #eee; }
-  .postListItem .listItemContent {
-    overflow: hidden; }
-    .postListItem .listItemContent h3 {
-      margin-bottom: 16px; }
-      .postListItem .listItemContent h3 a {
-        color: #c95b28;
-        font-size: 24px; }
-    .postListItem .listItemContent .listItemSummary {
-      color: #666;
-      font-size: 18px;
-      line-height: 1.8em;
-      margin-bottom: 16px; }
-    .postListItem .listItemContent .listItemMeta {
+    width: 1020px;
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: normal; }
+    .footer #inner-footer #footerWidget {
+      padding: 0 40px;
+      text-align: center; }
+      .footer #inner-footer #footerWidget .other-links li {
+        display: inline;
+        margin: 8px; }
+        .footer #inner-footer #footerWidget .other-links li a {
+          color: #aaa;
+          font-size: 16px; }
+    .footer #inner-footer .footer-bottom {
       color: #aaa;
-      font-size: 14px; }
-      .postListItem .listItemContent .listItemMeta a {
-        color: #aaa; }
-  .postListItem .featurePic {
-    float: right;
-    margin-top: 36px;
-    margin-left: 40px;
-    text-align: center;
-    width: 200px; }
-    .postListItem .featurePic img {
-      width: auto;
-      max-width: 200px;
-      height: auto; }
+      font-size: 14px;
+      text-align: center;
+      margin-top: 20px; }
 
-.homeNav {
-  text-align: center;
-  padding: 60px 0 30px;
-  border-bottom: 0 none; }
-  .homeNav a {
-    font-size: 20px;
-    padding: 0 24px; }
-  .homeNav .count {
-    font-size: 16px; }
-
-/*Post List Page-------------------------------------------------------*/
-.archive #inner-content {
-  max-width: 720px;
-  min-width: 320px;
-  padding: 0 20px; }
-
-.archive-list {
-  max-width: 720px;
-  min-width: 320px;
-  margin: 0 auto;
-  text-align: left;
-  padding: 40px 0; }
-  .archive-list .archive-title {
-    font-size: 20px;
-    text-align: center;
-    padding: 30px 0;
-    border-bottom: solid 1px #eee; }
-
-/*Normal Page-------------------------------------------------------*/
+/*********************
+页面模版样式 Style
+*********************/
+/*Normal Page----------------------------------------------------------------------------------*/
 article.page {
   color: #332a23;
   font-size: 18px;
   line-height: 1.8;
-  text-align: left; }
-
-article.page p {
-  margin-bottom: 40px; }
-
-article.page .article-header {
-  padding: 0 40px;
-  margin: 40px auto;
-  text-align: center; }
-
-article.page .page-title {
-  font-size: 24px; }
-
-article.page h3 {
-  color: #c95b28;
-  margin-bottom: 20px; }
-
-article.page .post-entry-content {
-  padding: 0 40px;
-  max-width: 920px;
-  margin: 0 auto; }
+  text-align: left;
+  padding: 0 140px; }
+  article.page .article-header {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 auto 40px;
+    text-align: center; }
+    article.page .article-header .page-title {
+      font-size: 28px; }
+  article.page h3 {
+    color: #c95b28;
+    margin-bottom: 20px; }
+  article.page p {
+    margin-bottom: 30px; }
 
 /*Full Width Page-------------------------------------------------------*/
 #fullWidthPage-content {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto; }
+  max-width: 1028px;
+  padding: 0 25px;
+  margin: 0 auto;
+  box-sizing: border-box; }
+  #fullWidthPage-content .fullWidthPage {
+    width: 100%;
+    overflow: hidden; }
+    #fullWidthPage-content .fullWidthPage article.page {
+      padding: 0; }
 
-.fullWidthPage {
-  width: 100%;
-  overflow: hidden; }
+/*CD Library-------------------------------------------------------------------------*/
+#content h2.cdTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+  background: #fff;
+  padding: 10px 20px;
+  position: relative; }
 
-.fullWidthPage #content {
-  padding: 0 40px; }
+.myCD {
+  margin: 0 0 80px -8px; }
+  .myCD li {
+    display: inline-block;
+    width: 90px;
+    height: 82px;
+    float: left;
+    margin: 20px 0 0 8px;
+    position: relative;
+    overflow: hidden; }
+  .myCD img {
+    width: 72px;
+    height: 72px;
+    position: absolute;
+    top: 3px;
+    left: 12px;
+    background: url("../images/blank_insert.gif") transparent no-repeat left top;
+    z-index: 0; }
+  .myCD a {
+    display: inline-block;
+    width: 90px;
+    height: 82px;
+    background: url("../images/jewel.png") transparent no-repeat left top;
+    line-height: 99em;
+    overflow: hidden;
+    position: relative;
+    z-index: 9; }
 
 /*Travel Place-------------------------------------------------------*/
 #mapWrap {
   padding: 20px 20px 0;
   background: #fff;
-  max-width: 660px;
-  margin: 0 auto; }
+  max-width: 700px;
+  margin: 0 auto;
+  box-sizing: border-box; }
 
 #cityList {
   padding: 20px 20px 60px;
@@ -2337,46 +2028,9 @@ article.page .post-entry-content {
   color: #aaa;
   font-size: 14px; }
 
-/*CD Library-------------------------------------------------------*/
-#content h2.cdTitle {
-  font-size: 16px;
-  color: #666;
-  background: #fff;
-  border-top: 2px solid #ededed;
-  padding: 6px 16px;
-  margin-top: 6px;
+/*其它插件-------------------------------------------------------*/
+.vjs-poster {
   position: relative; }
-
-.myCD {
-  margin: 0 0 80px -8px; }
-
-.myCD li {
-  display: inline-block;
-  width: 90px;
-  height: 82px;
-  float: left;
-  margin: 20px 0 0 8px;
-  position: relative;
-  overflow: hidden; }
-
-.myCD img {
-  width: 72px;
-  height: 72px;
-  position: absolute;
-  top: 3px;
-  left: 12px;
-  background: url("../images/blank_insert.gif") transparent no-repeat left top;
-  z-index: 0; }
-
-.myCD a {
-  display: inline-block;
-  width: 90px;
-  height: 82px;
-  background: url("../images/jewel.png") transparent no-repeat left top;
-  line-height: 99em;
-  overflow: hidden;
-  position: relative;
-  z-index: 9; }
 
 /*********************
 TABLET & IPAD
@@ -2408,121 +2062,240 @@ MOBILE DEVICES
   /******************************************************************
   Site Name: weblog.coletree.com
   Author:	coletree
-  
   Stylesheet: Tablet & Small Desktop Stylesheet
-  
-  Here's where you can start getting into the good stuff.
-  This size will work on iPads, other tablets, and desktops.
-  So you can start working with more styles, background images,
-  and other resources. You'll also notice the grid starts to
-  come into play. Have fun!
-  
   ******************************************************************/
+  /*********************
+  HEADER 模块
+  *********************/
   .header {
-    height: 60px; }
+    height: 40px; }
+    .header #inner-header {
+      height: 40px;
+      width: 100%; }
+      .header #inner-header .site-branding {
+        padding-left: 0;
+        text-align: center;
+        position: relative; }
+        .header #inner-header .site-branding .site-title a {
+          display: inline-block;
+          width: 120px;
+          height: 40px;
+          background: url(../images/logo.png) no-repeat 0 -7px;
+          background-size: 120px 40px;
+          text-decoration: none;
+          line-height: 99em;
+          vertical-align: top;
+          overflow: hidden; }
+      .header #inner-header #navMenuWrap {
+        float: none;
+        margin-top: 80px;
+        padding: 0 20px;
+        display: none;
+        background: #fff; }
+        .header #inner-header #navMenuWrap .nav {
+          float: none;
+          display: block;
+          text-align: center;
+          padding: 0 0 0 0; }
+          .header #inner-header #navMenuWrap .nav li {
+            display: block;
+            float: none;
+            border-top: dotted 1px #c8c2b9; }
+            .header #inner-header #navMenuWrap .nav li a {
+              border-right: 0 none;
+              display: block;
+              font-size: 16px;
+              overflow: hidden;
+              padding: 16px 20px; }
 
-  #inner-header {
-    width: 100%; }
-
-  .site-branding {
-    left: 10px;
-    top: -4px; }
-
-  #menuSwitchWrap {
-    display: inline-block; }
-
-  #navMenuWrap {
-    float: none;
-    margin-top: 80px;
-    padding: 0 20px;
-    display: none;
-    background: #fff; }
-
-  #inner-header nav .nav {
-    float: none;
-    display: block;
-    text-align: center;
-    padding: 0 0 0 0; }
-    #inner-header nav .nav li {
-      display: block;
-      float: none;
-      border-top: dotted 1px #c8c2b9; }
-      #inner-header nav .nav li a {
-        border-right: 0 none;
-        display: block;
-        font-size: 16px;
-        overflow: hidden;
-        padding: 16px 20px; }
-
-  .postListItem .featurePic {
-    float: none;
-    margin: 0 auto 20px;
-    width: 100%; }
-    .postListItem .featurePic img {
-      width: auto;
-      max-width: 100%;
-      height: auto; }
-
-  .entry-content {
-    padding: 0 30px; }
-
-  .homeNav {
-    font-size: 12px; }
-
-  .homeNav a {
-    font-size: 15px;
-    padding: 0 10px; }
-
-  /*post-formate--------------------------------------*/
-  .post_thoughs_format .entry-content {
-    line-height: 1.6em; }
-    .post_thoughs_format .entry-content p {
-      font-size: 16px;
-      padding: 0 30px; }
-
-  .post_journal_format .article-header {
-    padding: 0; }
-  .post_journal_format .entry-content p {
-    font-size: 16px;
-    line-height: 1.6em; }
-  .post_journal_format .entry-content > img {
-    max-width: 100%; }
-
-  /*recommend post format*/
-  .post_recommend_format .entry-content {
-    font-size: 16px;
-    line-height: 1.6em; }
-
-  /*page--------------------------------------*/
-  /*footer--------------------------------------*/
-  #footerWidget {
-    padding: 0 40px; }
-    #footerWidget .widgetTitle {
-      font-size: 16px;
-      font-weight: normal;
-      padding-bottom: 16px;
-      margin-bottom: 0; }
-    #footerWidget .footer-widget {
-      float: none;
-      display: block;
+  /*********************
+  页脚样式
+  *********************/
+  .footer {
+    padding: 20px 0;
+    background: #f7f6f5; }
+    .footer #inner-footer {
       width: 100%;
-      margin-right: 0; }
-      #footerWidget .footer-widget li {
-        padding: 12px 0 12px 2px;
-        border-bottom: dotted 1px #EEE; }
-        #footerWidget .footer-widget li a {
-          font-size: 16px;
-          display: block; }
-    #footerWidget .footer-last-widget {
-      display: none; }
+      margin: 0 auto;
+      box-sizing: border-box; }
+      .footer #inner-footer #footerWidget .other-links li a {
+        color: #aaa;
+        font-size: 14px; }
+      .footer #inner-footer .footer-bottom {
+        color: #aaa;
+        font-size: 14px;
+        text-align: center;
+        margin-top: 8px; }
 
-  .footer-bottom .other-links {
-    display: none; }
-  .footer-bottom .copyright {
-    float: none;
-    font-size: 14px;
-    text-align: center;
-    padding: 10px 0; } }
+  /*********************
+  首页模块
+  *********************/
+  #content {
+    padding-top: 100px; }
+
+  #inner-content {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box; }
+    #inner-content #leftContent {
+      font-size: 18px;
+      float: none;
+      width: 100%;
+      margin: 0 auto;
+      box-sizing: border-box; }
+    #inner-content .sidebar {
+      width: 100%;
+      float: none;
+      margin: 0 auto;
+      padding: 0 40px;
+      box-sizing: border-box; }
+      #inner-content .sidebar .widget img {
+        width: 100%;
+        height: auto;
+        vertical-align: top; }
+
+  .postListItem {
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box; }
+    .postListItem .featurePic {
+      height: 220px; }
+    .postListItem .listItemContent {
+      padding: 24px 20px 10px; }
+      .postListItem .listItemContent h3 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 16px; }
+      .postListItem .listItemContent .listItemSummary {
+        font-size: 16px;
+        line-height: 1.6em;
+        margin-bottom: 10px;
+        text-align: justify; }
+    .postListItem footer {
+      margin: 0 20px;
+      padding: 20px 0; }
+      .postListItem footer .listItemMeta {
+        font-size: 12px; }
+        .postListItem footer .listItemMeta a {
+          color: #aaa; }
+
+  /*post-format自定义------------------------------*/
+  .postListItem.post_format-post-format-image .listItemContent {
+    padding: 0 0 20px; }
+    .postListItem.post_format-post-format-image .listItemContent .listItemSummary {
+      margin-bottom: 0; }
+      .postListItem.post_format-post-format-image .listItemContent .listItemSummary p {
+        padding: 0 20px; }
+      .postListItem.post_format-post-format-image .listItemContent .listItemSummary .listItemMeta {
+        font-size: 12px;
+        padding: 0 20px; }
+
+  .postListItem.post_format-post-format-video .listItemContent {
+    padding: 0 0 20px; }
+    .postListItem.post_format-post-format-video .listItemContent .listItemSummary {
+      margin-bottom: 0; }
+      .postListItem.post_format-post-format-video .listItemContent .listItemSummary p {
+        padding: 0 20px; }
+      .postListItem.post_format-post-format-video .listItemContent .listItemSummary .listItemMeta {
+        font-size: 12px;
+        padding: 0 20px; }
+
+  .postListItem.post_format-post-format-status .listItemContent {
+    padding: 20px 0; }
+    .postListItem.post_format-post-format-status .listItemContent .listItemSummary {
+      margin-bottom: 0; }
+      .postListItem.post_format-post-format-status .listItemContent .listItemSummary p {
+        padding: 0 20px; }
+      .postListItem.post_format-post-format-status .listItemContent .listItemSummary .listItemMeta {
+        font-size: 12px;
+        padding: 0 20px; }
+
+  /*文章存档页-----*/
+  .archive-title {
+    padding: 0 0 40px; }
+
+  /*单篇文章样式--------------------------------------*/
+  #single-content {
+    padding: 100px 0 0; }
+    #single-content #single-content-wrap {
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 25px;
+      box-sizing: border-box; }
+      #single-content #single-content-wrap .hentry .article-header {
+        text-align: left;
+        padding: 0 0 20px; }
+        #single-content #single-content-wrap .hentry .article-header .entry-title {
+          font-size: 24px;
+          font-weight: bold;
+          text-align: left;
+          margin-bottom: 10px; }
+        #single-content #single-content-wrap .hentry .article-header .entry-meta-wrap {
+          color: #aaa;
+          font-size: 16px;
+          text-align: left;
+          margin-bottom: 10px;
+          width: 100%;
+          box-sizing: border-box; }
+          #single-content #single-content-wrap .hentry .article-header .entry-meta-wrap span {
+            margin-right: 8px; }
+      #single-content #single-content-wrap .hentry .entry-content {
+        padding: 0 0; }
+        #single-content #single-content-wrap .hentry .entry-content p {
+          font-size: 16px;
+          line-height: 28px;
+          margin: 0 0 30px;
+          text-align: justify;
+          word-spacing: -1px; }
+        #single-content #single-content-wrap .hentry .entry-content .wp-caption p {
+          font-size: 14px;
+          text-align: center; }
+      #single-content #single-content-wrap .hentry footer {
+        padding: 20px 0;
+        background: url(../images/dashline.png) #fff no-repeat center top; }
+      #single-content #single-content-wrap .video-js {
+        width: 100%;
+        height: auto; }
+
+  .entry-meta-wrap-bottom {
+    padding: 0; }
+    .entry-meta-wrap-bottom a {
+      color: #aaa; }
+      .entry-meta-wrap-bottom a:hover {
+        color: #F6512C; }
+
+  .post_view_count {
+    padding: 10px 0; }
+
+  #single-article-footer {
+    margin: 30px 0; }
+    #single-article-footer table p {
+      padding: 10px; }
+
+  /******************************************************************
+  COMMENT STYLES
+  ******************************************************************/
+  .single-volume-comment {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 0; }
+
+  #comments-title {
+    padding: 10px 20px; }
+
+  .pingback,
+  .comment {
+    padding: 20px 20px; }
+
+  /*不同类型单篇文章样式--------------------------------------*/
+  #single-content #single-content-wrap .post_format-post-format-status .entry-content {
+    padding: 30px 30px 20px;
+    margin: 0 0 20px; }
+
+  /*Full Width Page-------------------------------------------------------*/
+  #fullWidthPage-content {
+    padding: 0 20px; } }
 /*********************
 RETINA (2x RESOLUTION DEVICES)
 This applies to the retina iPhone (4s) and iPad (2,3) along with

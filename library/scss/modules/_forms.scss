@@ -52,13 +52,13 @@ textarea,
   width: 100%;
   max-width: 400px;
   font-family: $lato;
-  background-color: $gray;
+  background-color: $grey;
   @include transition(background-color 0.24s ease-in-out);
 
   // a focused input (or hovered on)
   &:focus,
   &:active {
-    background-color: lighten($gray, 4%);
+    background-color: lighten($grey, 4%);
   } // end hover or focus
 
   // error notification
@@ -89,7 +89,7 @@ textarea,
   &[disabled],
   &.is-disabled {
     cursor: not-allowed;
-    border-color: $disabled-gray;
+    border-color: $disabled-grey;
     opacity: 0.6;
 
     &:focus,

@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
-			<div id="content">
+			<div id="single-content">
 
-				<div id="inner-content" class="wrap cf">
+				<div id="single-content-wrap" class="wrap cf">
 
-					<div id="main" class="cf" role="main">
+					<div id="" class="cf" role="main">
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -54,5 +54,3 @@
 				</div>
 
 			</div>
-
-<?php get_footer(); ?>

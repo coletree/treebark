@@ -4,33 +4,17 @@
 
 				<div id="inner-content" class="wrap cf">
 
-					<div id="main" class="m-all t-2of3 d-5of7 cf" role="main">
+					<div id="" class="cf" role="main">
 
 						<article id="post-not-found" class="hentry cf">
 
-							<header class="article-header">
+							<h1 style="font-size:24px; font-weight:bold; color:#332A23; padding:100px 40px 20px;">该地址页面不存在，内容可能已被搬走或删除</h1>
 
-								<h1>你打开的页面不存在，内容可能已被删除</h1>
+							<p class="alignCenter" style="font-size:16px; color:#999; margin-bottom:40px;">你可以尝试一下搜索历史文章</p>
 
-							</header>
-
-							<section class="entry-content">
-
-								<p class="alignCenter" style="color:#999;">可以尝试重新搜索，或者浏览其它内容</p>
-
-							</section>
-
-							<section class="search">
-
-									<p><?php get_search_form(); ?></p>
-
-							</section>
-
-							<footer class="article-footer">
-
-									<!-- <p><?php _e( 'This is the 404.php template.', 'bonestheme' ); ?></p> -->
-
-							</footer>
+							<div class="search">
+								<p><?php get_search_form(); ?></p>
+							</div>
 
 						</article>
 

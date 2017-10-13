@@ -10,8 +10,8 @@ of the styles inside media queries.
 
 Helpful articles on Sass file organization:
 http://thesassway.com/advanced/modular-css-naming-conventions
-
 ******************************************************************/
+
 
 /*********************
 IMPORTING PARTIALS
@@ -50,13 +50,8 @@ you hate oysters, then the world is your peanut butter & jelly sandwich.
 // alert boxes
 @import "modules/alerts";
 
-// buttons
-@import "modules/buttons";
-
 // forms (inputs & labels)
 @import "modules/forms";
-
-
 
 
 
@@ -86,7 +81,6 @@ MOBILE DEVICES
     // styles in 760max.scss
 	@import "breakpoints/760max";
 }
-
 
 
 

@@ -1,16 +1,46 @@
               <?php
                 /*
-                 * This is the review post format.
+                 * This is the audio post format.
                 */
               ?>
 
-              <article id="post-<?php the_ID(); ?>" <?php post_class('cf post_recommend_format'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+              <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+
 
 
                 <header class="article-header">
-                  <h1 class="h2 entry-title">
-                    <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-                  </h1>
+
+                  <div class="journal-header">
+
+                    <h1 class="h2 entry-title">
+
+                      <a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+
+                      <p class="journal-meta">
+                        <span class="place"><?php the_field('journal_place'); ?></span>
+                        &bull;
+                        <span class="date"><?php the_field('journal_date'); ?></span>
+                      </p>
+
+                    </h1>
+                  </div>
+                  
+                  <!-- check if the post has a Post Thumbnail assigned to it. -->
+                  <?php if ( has_post_thumbnail()) : ?>
+
+                    <div class="feature-image" >
+                      <?php the_post_thumbnail('full'); ?>
+                    </div>
+
+                  <?php else : ?>
+
+                    <div class="feature-image" >
+                      <?php the_post_thumbnail('full'); ?>
+                    </div>
+                    
+                  <?php endif; ?>
+
+
                 </header>
 
 
@@ -41,39 +71,6 @@
                 </section> <?php // end article section ?>
 
 
-
-                <section class="recommend_resource cf">
-
-                    <?php if ( has_post_thumbnail()) : ?>
-
-                    <div class="recommend_resource_img">
-
-                        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-                          <?php the_post_thumbnail('small'); ?>
-                        </a>
-
-                    </div>
-
-                    <?php else : ?>
-                      
-                    <?php endif; ?>
-
-                    <div class="recommend_resource_content">
-
-                      <h5><?php the_field('recommend_title'); ?></h5>
-
-                      <p><?php the_field('recommend_info'); ?></p>
-
-                      <div>
-                        <a href="<?php the_field('recommend_download'); ?>" target="_blank">共享地址：<?php the_field('recommend_download'); ?></a>
-                      </div>
-                      
-                    </div>
-
-                </section>
-
-
-                <!-- 可不要的信息，只是帮助编辑 -->
                 <div class="entry-meta-wrap cf">
 
                     <span class="entry-meta">
@@ -100,9 +97,7 @@
                     <div class="jiathis_style">
                     <a class="jiathis_button_weixin"></a>
                     <a class="jiathis_button_tsina"></a>
-                    <a class="jiathis_button_douban"></a>
                     <a class="jiathis_button_twitter"></a>
-                    <a class="jiathis_button_googleplus"></a>
                     <a href="http://www.jiathis.com/share?uid=1725925" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
                     </div>
                     <script type="text/javascript" >
@@ -124,63 +119,63 @@
 
                 </footer> <?php // end article footer ?>
 
-
-                <div id="related_article" class="clearfix">
-
+                
                 <!-- 获取同分类的相关文章 -->
-                <ul id="cat_related">
-                      <?php
-                      global $post;
-                      $cats = wp_get_post_categories($post->ID);
-                      if ($cats) {
-                          $args = array(
-                                'category__in' => array( $cats[0] ),
-                                'post__not_in' => array( $post->ID ),
-                                'showposts' => 3,
-                                'caller_get_posts' => 1
-                            );
-                        query_posts($args);
+                <!-- <div id="related_article" class="clearfix">
+                  <ul id="cat_related">
+                        <?php
+                        global $post;
+                        $cats = wp_get_post_categories($post->ID);
+                        if ($cats) {
+                            $args = array(
+                                  'category__in' => array( $cats[0] ),
+                                  'post__not_in' => array( $post->ID ),
+                                  'showposts' => 3,
+                                  'caller_get_posts' => 1
+                              );
+                          query_posts($args);
 
-                        if (have_posts()) {
+                          if (have_posts()) {
 
-                      echo '<h4><span> ✣ &nbsp;&nbsp; Others Thoughs Post &nbsp;&nbsp; ✣ </span></h4>';
+                        echo '<h4><span> ✣ &nbsp;&nbsp; Others Thoughs Post &nbsp;&nbsp; ✣ </span></h4>';
 
-                          while (have_posts()) {
-                            the_post(); update_post_caches($posts); ?>
+                            while (have_posts()) {
+                              the_post(); update_post_caches($posts); ?>
 
 
-                          <li class="relatedListItem cf">
+                            <li class="relatedListItem cf">
 
-                            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="linkWrap" >
+                              <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="linkWrap" >
 
-                                <h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+                                  <h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
 
-                                <p class="listItemSummary">
-                                  <?php echo mb_strimwidth(strip_tags(apply_filters('the_excerpt', $post->post_content)), 0, 160,"...");?>
-                                </p>
+                                  <p class="listItemSummary">
+                                    <?php echo mb_strimwidth(strip_tags(apply_filters('the_excerpt', $post->post_content)), 0, 160,"...");?>
+                                  </p>
 
-                            </a>
-                            
-                          </li>
+                              </a>
+                              
+                            </li>
 
-                      <?php
+                        <?php
+                            }
                           }
+                          else {
+                            echo '<li></li>';
+                          }
+                          wp_reset_query();
                         }
                         else {
-                          echo '<li></li>';
+                          echo '';
                         }
-                        wp_reset_query();
-                      }
-                      else {
-                        echo '';
-                      }
-                      ?>
-                </ul>
+                        ?>
+                  </ul>
+                </div> -->
 
+
+                <div class="single-volume-comment">
+                  <?php comments_template(); ?>
                 </div>
-
-
-                <?php comments_template(); ?>
 
 
               </article> <?php // end article ?>
