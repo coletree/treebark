@@ -22,10 +22,6 @@
 						</div>
 					</div>
 
-					<div class="footer-bottom clearfix">
-					    <div class="copyright">© 2006 - <?php echo date('Y'); ?>. All Rights Reserved. 晓禾依树</div>
-					</div>
-
 				</div>
 
 			</footer>

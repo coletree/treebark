@@ -7,7 +7,6 @@
               <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
 
-
                 <header class="article-header">
 
                   <div class="journal-header">
@@ -42,6 +41,13 @@
 
 
                 </header>
+
+
+                <div class="entry-meta-wrap-bottom cf">
+                  <span class="entry-meta-date"><?php the_time('Y-m-d'); ?></span>
+                  <span class="entry-meta-author"><?php the_author(); ?></span>
+                  <span class="entry-meta-edit"><?php edit_post_link(); ?></span>
+                </div>
 
 
                 <section class="entry-content cf" itemprop="articleBody">
@@ -90,91 +96,93 @@
                 </div>
 
 
-                <footer class="article-footer" id="single-article-footer">
+                <!-- 单篇文章最后/阅读数 -->
+                <div class="post_view_count">阅读 <?php post_views('10', ''); ?></div>
 
-                    <!-- 单篇文章最后 -->
-                    <!-- JiaThis Button BEGIN -->
-                    <div class="jiathis_style">
-                    <a class="jiathis_button_weixin"></a>
-                    <a class="jiathis_button_tsina"></a>
-                    <a class="jiathis_button_twitter"></a>
-                    <a href="http://www.jiathis.com/share?uid=1725925" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-                    </div>
-                    <script type="text/javascript" >
-                    var jiathis_config={
-                      data_track_clickback:true,
-                      summary:"",
-                      ralateuid:{
-                        "tsina":"coletree"
-                      },
-                      appkey:{
-                        "tsina":"3982599182"
-                      },
-                      shortUrl:false,
-                      hideMore:true
-                    }
-                    </script>
-                    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1725925" charset="utf-8"></script>
-                    <!-- JiaThis Button END -->
 
+                <!-- 单篇文章最后 -->
+                <footer class="article-footer clearfix" id="single-article-footer">
+                  <table>
+                    <tbody>
+                    <tr>
+                      <td width="50%" valign="top">
+                        <p>
+                          <img src="<?php echo get_template_directory_uri(); ?>/library/images/qcode_weixin.png">
+                        </p>
+                      </td>
+                      <td width="50%" valign="top">
+                        <p>
+                        <img src="<?php echo get_template_directory_uri(); ?>/library/images/qcode_dashang.png">
+                        </p>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
                 </footer> <?php // end article footer ?>
 
-                
+
+                <div class="single-volume-comment">
+                  <?php comments_template(); ?>
+                </div>
+
+
                 <!-- 获取同分类的相关文章 -->
                 <!-- <div id="related_article" class="clearfix">
-                  <ul id="cat_related">
+                <ul id="cat_related">
                         <?php
                         global $post;
                         $cats = wp_get_post_categories($post->ID);
                         if ($cats) {
                             $args = array(
-                                  'category__in' => array( $cats[0] ),
-                                  'post__not_in' => array( $post->ID ),
-                                  'showposts' => 3,
-                                  'caller_get_posts' => 1
-                              );
-                          query_posts($args);
+                              'category__in' => array( $cats[0] ),
+                              'post__not_in' => array( $post->ID ),
+                              'showposts' => 3,
+                              'caller_get_posts' => 1
+                          );
+                      query_posts($args);
 
-                          if (have_posts()) {
+                      if (have_posts()) {
 
-                        echo '<h4><span> ✣ &nbsp;&nbsp; Others Thoughs Post &nbsp;&nbsp; ✣ </span></h4>';
+                    echo '<h4><span> ✣ &nbsp;&nbsp; Others Thoughs Post &nbsp;&nbsp; ✣ </span></h4>';
 
-                            while (have_posts()) {
-                              the_post(); update_post_caches($posts); ?>
+                        while (have_posts()) {
+                          the_post(); update_post_caches($posts); ?>
 
 
-                            <li class="relatedListItem cf">
+                        <li class="relatedListItem cf">
 
-                              <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="linkWrap" >
+                          <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="linkWrap" >
 
-                                  <h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+                              <h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
 
-                                  <p class="listItemSummary">
-                                    <?php echo mb_strimwidth(strip_tags(apply_filters('the_excerpt', $post->post_content)), 0, 160,"...");?>
-                                  </p>
+                              <p class="listItemSummary">
+                                <?php echo mb_strimwidth(strip_tags(apply_filters('the_excerpt', $post->post_content)), 0, 160,"...");?>
+                              </p>
 
-                              </a>
-                              
-                            </li>
+                          </a>
+                          
+                        </li>
 
-                        <?php
-                            }
-                          }
-                          else {
-                            echo '<li></li>';
-                          }
-                          wp_reset_query();
+                    <?php
                         }
-                        else {
-                          echo '';
-                        }
-                        ?>
-                  </ul>
+                      }
+                      else {
+                        echo '<li></li>';
+                      }
+                      wp_reset_query();
+                    }
+                    else {
+                      echo '';
+                    }
+                    ?>
+                </ul>
                 </div> -->
 
 
-                <div class="single-volume-comment">
-                  <?php comments_template(); ?>
+                <div class="signle-showAll">
+                  <a href="http://weblog.coletree.com/">
+                    <span>查看历史文章</span>
+                  </a>
                 </div>
 
 

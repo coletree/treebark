@@ -7,6 +7,13 @@
               <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
 
+                <div class="entry-meta-wrap-bottom cf">
+                  <span class="entry-meta-date"><?php the_time('Y-m-d'); ?></span>
+                  <span class="entry-meta-author"><?php the_author(); ?></span>
+                  <span class="entry-meta-edit"><?php edit_post_link(); ?></span>
+                </div>
+
+
                 <section class="entry-content cf" itemprop="articleBody">
                   <?php
                     // the content (pretty self explanatory huh)
@@ -32,13 +39,6 @@
                     ) );
                   ?>
                 </section> <?php // end article section ?>
-
-
-                <div class="entry-meta-wrap-bottom cf">
-                  <span class="entry-meta-date"><?php the_time('Y-m-d'); ?></span>
-                  <span class="entry-meta-author"><?php the_author(); ?></span>
-                  <span class="entry-meta-edit"><?php edit_post_link(); ?></span>
-                </div>
 
 
                 <!-- 单篇文章最后/阅读数 -->
@@ -70,5 +70,12 @@
                   <?php comments_template(); ?>
                 </div>
 
+
+                <div class="signle-showAll">
+                  <a href="http://weblog.coletree.com/">
+                    <span>查看历史文章</span>
+                  </a>
+                </div>
+                
 
               </article> <?php // end article ?>

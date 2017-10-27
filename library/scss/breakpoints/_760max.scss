@@ -218,6 +218,63 @@ HEADER 模块
 
 
 
+.pagination{
+    margin: 80px 0;
+}
+
+
+// sidebar
+.sidebar{
+
+	.widget_text{
+		display: none;
+	}
+	
+	.widget_categories{
+		.widgettitle{
+			text-align: center;
+			font-size: 16px;
+			padding: 0 0 12px;
+			margin-bottom: 0;
+		}
+		ul{
+			li{
+				font-size: 16px;
+				padding: 12px 0;
+				text-align: center;
+				border-bottom: 1px dotted #ddd;
+			}
+		}
+	}
+
+	.widget_links{
+		.widgettitle{
+			text-align: center;
+			font-size: 16px;
+			padding: 0 0 12px;
+			margin-bottom: 0;
+		}
+		ul{
+			li{
+				font-size: 16px;
+				padding: 12px 0;
+				text-align: center;
+				border-bottom: 1px dotted #ddd;
+			}
+		}
+	}
+
+	.copyright{
+		text-align: center;
+		margin-top: 20px;
+		padding: 16px 0 0;
+		border-top: 1px dotted #ddd;
+	}
+
+}
+
+
+
 /*post-format自定义------------------------------*/
 
 // 单图
@@ -337,6 +394,14 @@ HEADER 模块
 						text-align: center;
 					}
 				}
+
+				blockquote {
+					padding: 30px 30px 20px;
+	
+					&:before {}
+	
+				}
+
 			}
 
 			footer {
@@ -403,6 +468,37 @@ COMMENT STYLES
 .comment {
 	padding: 20px 20px;
 }
+
+
+
+.signle-showAll{
+	display: block;
+	text-align: center;
+	margin-top: 20px;
+
+	a{
+		width: 100%;
+		display: inline-block;
+		padding: 12px 0;
+		border: solid 1px #eee;
+		background: #fff;
+		box-sizing: border-box;
+
+		&:hover{
+			color: #7e6b59;
+			background: #fdfbf8;
+		};
+
+		span{
+			display: inline-block;
+			font-size: 18px;
+			height: 32px;
+			line-height: 32px;
+		}
+	}
+}
+
+
 
 
 

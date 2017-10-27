@@ -558,17 +558,16 @@ HEADER 模块
 
 			blockquote {
 				margin: 0 0 40px;
-				padding: 20px 30px;
-				border-left: 3px solid #BFBAB5;
-				font-size: 16px;
-				font-style: italic;
+				padding: 30px 40px 20px;
+				border-left: 4px solid #BFBAB5;
+				font-size: 18px;
 				color: #776e64;
 				background:rgba(255, 255, 255, 0.6);
 
 				&:before {}
 
 				p{
-					margin-bottom: 0;
+					margin-bottom: 20px;
 				}
 
 			}
@@ -763,82 +762,10 @@ HEADER 模块
 	}
 }
 
-#single-article-footer .jiathis_style{
-	text-align: center;
-	padding:20px;
+
+.signle-showAll{
+	display: none;
 }
-
-#single-article-footer .jiathis.jiathis_separator.jtico.jtico_jiathis{
-    display: none !important;
-}
-
-#single-article-footer .jiathis_style .button, 
-#single-article-footer .jiathis_style .jiathis_txt{
-    float: none;
-    display: inline-block;
-    font-size: 14px !important;
-}
-
-#single-article-footer .jiathis_button_weixin,
-#single-article-footer .jiathis_button_tsina,
-#single-article-footer .jiathis_button_douban,
-#single-article-footer .jiathis_button_twitter,
-#single-article-footer .jiathis_button_googleplus{
-	display: inline-block;
-	padding: 0 4px !important;
-	margin: 0 8px;
-	background: #f5f5f5;
-}
-
-#single-article-footer .jiathis_style .jtico {
-    cursor: pointer;
-    display: inline-block !important;
-    width: 32px !important;
-    height: 32px !important;
-    padding-left: 0 !important;
-}
-
-#single-article-footer .jiathis_button_weixin .jtico_weixin{
-    background: url(../images/icon_32.png) no-repeat;
-    background-position: 0 0;
-    &:hover{
-    	background-position: -32px 0;
-    }
-}
-
-#single-article-footer .jiathis_button_tsina .jtico_tsina{
-    background: url(../images/icon_32.png) no-repeat;
-    background-position: 0 -32px;
-    &:hover{
-    	background-position: -32px -32px;
-    }
-}
-
-#single-article-footer .jiathis_button_douban .jtico_douban{
-    background: url(../images/icon_32.png) no-repeat;
-    background-position: 0 -64px;
-    &:hover{
-    	background-position: -32px -64px;
-    }
-}
-
-#single-article-footer .jiathis_button_twitter .jtico_twitter{
-    background: url(../images/icon_32.png) no-repeat;
-    background-position: 0 -96px;
-    &:hover{
-    	background-position: -32px -96px;
-    }
-}
-
-#single-article-footer .jiathis_button_googleplus .jtico_googleplus{
-    background: url(../images/icon_32.png) no-repeat;
-    background-position: 0 -128px;
-    &:hover{
-    	background-position: -32px -128px;
-    }
-}
-
-
 
 
 
@@ -1134,7 +1061,7 @@ SIDEBARS & ASIDES
 
 			li {
 				color: $light-grey;
-				padding: 6px 0;
+				padding: 10px 0;
 
 				&:first-child {}
 				&:last-child {}
@@ -1158,6 +1085,16 @@ SIDEBARS & ASIDES
 	}
 
 	.no-widgets {
+	}
+
+
+	.copyright{
+		color: #aaa;
+		font-size: 14px;
+		text-align: left;
+		margin-top: 20px;
+		padding: 16px 0 0;
+		border-top: 1px dotted #ddd;
 	}
 
 }
@@ -1215,14 +1152,6 @@ SIDEBARS & ASIDES
 				}
 			}
 		}
-		
-		.footer-bottom{
-			color: #aaa;
-			font-size: 14px;
-			text-align: center;
-			margin-top: 20px;
-		}
-
 	}
 
 }

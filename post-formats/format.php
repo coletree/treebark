@@ -83,4 +83,13 @@
                 </div>
 
 
+                <div class="signle-showAll">
+                  <a href="http://weblog.coletree.com/">
+                    <span>查看历史文章</span>
+                  </a>
+                </div>
+
+                
               </article> <?php // end article ?>
+
+

@@ -241,6 +241,37 @@ HEADER 模块
       .postListItem footer .listItemMeta a {
         color: #aaa; }
 
+.pagination {
+  margin: 80px 0; }
+
+.sidebar .widget_text {
+  display: none; }
+.sidebar .widget_categories .widgettitle {
+  text-align: center;
+  font-size: 16px;
+  padding: 0 0 12px;
+  margin-bottom: 0; }
+.sidebar .widget_categories ul li {
+  font-size: 16px;
+  padding: 12px 0;
+  text-align: center;
+  border-bottom: 1px dotted #ddd; }
+.sidebar .widget_links .widgettitle {
+  text-align: center;
+  font-size: 16px;
+  padding: 0 0 12px;
+  margin-bottom: 0; }
+.sidebar .widget_links ul li {
+  font-size: 16px;
+  padding: 12px 0;
+  text-align: center;
+  border-bottom: 1px dotted #ddd; }
+.sidebar .copyright {
+  text-align: center;
+  margin-top: 20px;
+  padding: 16px 0 0;
+  border-top: 1px dotted #ddd; }
+
 /*post-format自定义------------------------------*/
 .postListItem.post_format-post-format-image .listItemContent {
   padding: 0 0 20px; }
@@ -312,6 +343,8 @@ HEADER 模块
       #single-content #single-content-wrap .hentry .entry-content .wp-caption p {
         font-size: 14px;
         text-align: center; }
+      #single-content #single-content-wrap .hentry .entry-content blockquote {
+        padding: 30px 30px 20px; }
     #single-content #single-content-wrap .hentry footer {
       padding: 20px 0;
       background: url(../images/dashline.png) #fff no-repeat center top; }
@@ -348,6 +381,26 @@ COMMENT STYLES
 .pingback,
 .comment {
   padding: 20px 20px; }
+
+.signle-showAll {
+  display: block;
+  text-align: center;
+  margin-top: 20px; }
+  .signle-showAll a {
+    width: 100%;
+    display: inline-block;
+    padding: 12px 0;
+    border: solid 1px #eee;
+    background: #fff;
+    box-sizing: border-box; }
+    .signle-showAll a:hover {
+      color: #7e6b59;
+      background: #fdfbf8; }
+    .signle-showAll a span {
+      display: inline-block;
+      font-size: 18px;
+      height: 32px;
+      line-height: 32px; }
 
 /*不同类型单篇文章样式--------------------------------------*/
 #single-content #single-content-wrap .post_format-post-format-status .entry-content {

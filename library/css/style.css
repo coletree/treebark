@@ -1474,14 +1474,13 @@ HEADER 模块
           border-right: 0; }
       #single-content #single-content-wrap .entry-content blockquote {
         margin: 0 0 40px;
-        padding: 20px 30px;
-        border-left: 3px solid #BFBAB5;
-        font-size: 16px;
-        font-style: italic;
+        padding: 30px 40px 20px;
+        border-left: 4px solid #BFBAB5;
+        font-size: 18px;
         color: #776e64;
         background: rgba(255, 255, 255, 0.6); }
         #single-content #single-content-wrap .entry-content blockquote p {
-          margin-bottom: 0; }
+          margin-bottom: 20px; }
       #single-content #single-content-wrap .entry-content li {
         list-style: disc outside none;
         margin-bottom: 12px; }
@@ -1596,65 +1595,8 @@ HEADER 模块
       width: 100%;
       height: auto; }
 
-#single-article-footer .jiathis_style {
-  text-align: center;
-  padding: 20px; }
-
-#single-article-footer .jiathis.jiathis_separator.jtico.jtico_jiathis {
-  display: none !important; }
-
-#single-article-footer .jiathis_style .button,
-#single-article-footer .jiathis_style .jiathis_txt {
-  float: none;
-  display: inline-block;
-  font-size: 14px !important; }
-
-#single-article-footer .jiathis_button_weixin,
-#single-article-footer .jiathis_button_tsina,
-#single-article-footer .jiathis_button_douban,
-#single-article-footer .jiathis_button_twitter,
-#single-article-footer .jiathis_button_googleplus {
-  display: inline-block;
-  padding: 0 4px !important;
-  margin: 0 8px;
-  background: #f5f5f5; }
-
-#single-article-footer .jiathis_style .jtico {
-  cursor: pointer;
-  display: inline-block !important;
-  width: 32px !important;
-  height: 32px !important;
-  padding-left: 0 !important; }
-
-#single-article-footer .jiathis_button_weixin .jtico_weixin {
-  background: url(../images/icon_32.png) no-repeat;
-  background-position: 0 0; }
-  #single-article-footer .jiathis_button_weixin .jtico_weixin:hover {
-    background-position: -32px 0; }
-
-#single-article-footer .jiathis_button_tsina .jtico_tsina {
-  background: url(../images/icon_32.png) no-repeat;
-  background-position: 0 -32px; }
-  #single-article-footer .jiathis_button_tsina .jtico_tsina:hover {
-    background-position: -32px -32px; }
-
-#single-article-footer .jiathis_button_douban .jtico_douban {
-  background: url(../images/icon_32.png) no-repeat;
-  background-position: 0 -64px; }
-  #single-article-footer .jiathis_button_douban .jtico_douban:hover {
-    background-position: -32px -64px; }
-
-#single-article-footer .jiathis_button_twitter .jtico_twitter {
-  background: url(../images/icon_32.png) no-repeat;
-  background-position: 0 -96px; }
-  #single-article-footer .jiathis_button_twitter .jtico_twitter:hover {
-    background-position: -32px -96px; }
-
-#single-article-footer .jiathis_button_googleplus .jtico_googleplus {
-  background: url(../images/icon_32.png) no-repeat;
-  background-position: 0 -128px; }
-  #single-article-footer .jiathis_button_googleplus .jtico_googleplus:hover {
-    background-position: -32px -128px; }
+.signle-showAll {
+  display: none; }
 
 /******************************************************************
 翻页导航栏
@@ -1863,7 +1805,7 @@ SIDEBARS & ASIDES
     margin-bottom: 70px; }
     .sidebar .widget ul li {
       color: #cccccc;
-      padding: 6px 0;
+      padding: 10px 0;
       /* deep nesting */ }
       .sidebar .widget ul li a {
         color: #453d31; }
@@ -1872,6 +1814,13 @@ SIDEBARS & ASIDES
       height: auto;
       vertical-align: top;
       border-radius: 4px; }
+  .sidebar .copyright {
+    color: #aaa;
+    font-size: 14px;
+    text-align: left;
+    margin-top: 20px;
+    padding: 16px 0 0;
+    border-top: 1px dotted #ddd; }
 
 #sidebar1 .widget_custom_html {
   font-size: 14px;
@@ -1902,11 +1851,6 @@ SIDEBARS & ASIDES
         .footer #inner-footer #footerWidget .other-links li a {
           color: #aaa;
           font-size: 16px; }
-    .footer #inner-footer .footer-bottom {
-      color: #aaa;
-      font-size: 14px;
-      text-align: center;
-      margin-top: 20px; }
 
 /*********************
 页面模版样式 Style
@@ -2180,6 +2124,37 @@ MOBILE DEVICES
         .postListItem footer .listItemMeta a {
           color: #aaa; }
 
+  .pagination {
+    margin: 80px 0; }
+
+  .sidebar .widget_text {
+    display: none; }
+  .sidebar .widget_categories .widgettitle {
+    text-align: center;
+    font-size: 16px;
+    padding: 0 0 12px;
+    margin-bottom: 0; }
+  .sidebar .widget_categories ul li {
+    font-size: 16px;
+    padding: 12px 0;
+    text-align: center;
+    border-bottom: 1px dotted #ddd; }
+  .sidebar .widget_links .widgettitle {
+    text-align: center;
+    font-size: 16px;
+    padding: 0 0 12px;
+    margin-bottom: 0; }
+  .sidebar .widget_links ul li {
+    font-size: 16px;
+    padding: 12px 0;
+    text-align: center;
+    border-bottom: 1px dotted #ddd; }
+  .sidebar .copyright {
+    text-align: center;
+    margin-top: 20px;
+    padding: 16px 0 0;
+    border-top: 1px dotted #ddd; }
+
   /*post-format自定义------------------------------*/
   .postListItem.post_format-post-format-image .listItemContent {
     padding: 0 0 20px; }
@@ -2251,6 +2226,8 @@ MOBILE DEVICES
         #single-content #single-content-wrap .hentry .entry-content .wp-caption p {
           font-size: 14px;
           text-align: center; }
+        #single-content #single-content-wrap .hentry .entry-content blockquote {
+          padding: 30px 30px 20px; }
       #single-content #single-content-wrap .hentry footer {
         padding: 20px 0;
         background: url(../images/dashline.png) #fff no-repeat center top; }
@@ -2287,6 +2264,26 @@ MOBILE DEVICES
   .pingback,
   .comment {
     padding: 20px 20px; }
+
+  .signle-showAll {
+    display: block;
+    text-align: center;
+    margin-top: 20px; }
+    .signle-showAll a {
+      width: 100%;
+      display: inline-block;
+      padding: 12px 0;
+      border: solid 1px #eee;
+      background: #fff;
+      box-sizing: border-box; }
+      .signle-showAll a:hover {
+        color: #7e6b59;
+        background: #fdfbf8; }
+      .signle-showAll a span {
+        display: inline-block;
+        font-size: 18px;
+        height: 32px;
+        line-height: 32px; }
 
   /*不同类型单篇文章样式--------------------------------------*/
   #single-content #single-content-wrap .post_format-post-format-status .entry-content {

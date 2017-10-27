@@ -4,6 +4,10 @@
 
 						<?php dynamic_sidebar( 'sidebar1' ); ?>
 
+						<div class="copyright">
+							© 2006 - <?php echo date('Y'); ?> Copyright.
+						</div>
+
 					<?php else : ?>
 
 						<?php
